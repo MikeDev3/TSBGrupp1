@@ -34,6 +34,11 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
             </div>
+            @if (HttpContext.Current.Session["admin"] != null)
+            {
+                <p style="color: #DDDDDD" class="menuBarItem"> @ViewBag.Username </p>
+                <button class="logoutbtn">@Html.ActionLink("Logga ut", "LogOut", "Login")</button>
+            }
         </div>
     </div>
     <div class="container body-content">

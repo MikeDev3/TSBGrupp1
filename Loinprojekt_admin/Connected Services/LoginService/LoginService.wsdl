@@ -67,6 +67,12 @@
   <wsdl:message name="ILoginService_GetModerators_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetModeratorsResponse" />
   </wsdl:message>
+  <wsdl:message name="ILoginService_GetAdmins_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdmins" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_GetAdmins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdminsResponse" />
+  </wsdl:message>
   <wsdl:message name="ILoginService_GetActiveUsers_InputMessage">
     <wsdl:part name="parameters" element="tns:GetActiveUsers" />
   </wsdl:message>
@@ -96,6 +102,30 @@
   </wsdl:message>
   <wsdl:message name="ILoginService_AssignUserRole_OutputMessage">
     <wsdl:part name="parameters" element="tns:AssignUserRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_EmailExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:EmailExist" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_EmailExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EmailExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_UsernameExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:UsernameExist" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_UsernameExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UsernameExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_UserIdExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserIdExist" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_UserIdExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserIdExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_GetAdminByUsername_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdminByUsername" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_GetAdminByUsername_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdminByUsernameResponse" />
   </wsdl:message>
   <wsdl:portType name="ILoginService">
     <wsdl:operation name="CreateUser">
@@ -138,6 +168,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/GetModerators" message="tns:ILoginService_GetModerators_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/GetModeratorsResponse" message="tns:ILoginService_GetModerators_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetAdmins">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/GetAdmins" message="tns:ILoginService_GetAdmins_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/GetAdminsResponse" message="tns:ILoginService_GetAdmins_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetActiveUsers">
       <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/GetActiveUsers" message="tns:ILoginService_GetActiveUsers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/GetActiveUsersResponse" message="tns:ILoginService_GetActiveUsers_OutputMessage" />
@@ -157,6 +191,22 @@
     <wsdl:operation name="AssignUserRole">
       <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/AssignUserRole" message="tns:ILoginService_AssignUserRole_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/AssignUserRoleResponse" message="tns:ILoginService_AssignUserRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmailExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/EmailExist" message="tns:ILoginService_EmailExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/EmailExistResponse" message="tns:ILoginService_EmailExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UsernameExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/UsernameExist" message="tns:ILoginService_UsernameExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/UsernameExistResponse" message="tns:ILoginService_UsernameExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserIdExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/UserIdExist" message="tns:ILoginService_UserIdExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/UserIdExistResponse" message="tns:ILoginService_UserIdExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdminByUsername">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/GetAdminByUsername" message="tns:ILoginService_GetAdminByUsername_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/GetAdminByUsernameResponse" message="tns:ILoginService_GetAdminByUsername_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ILoginService" type="tns:ILoginService">
@@ -251,6 +301,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetAdmins">
+      <soap:operation soapAction="http://tempuri.org/ILoginService/GetAdmins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetActiveUsers">
       <soap:operation soapAction="http://tempuri.org/ILoginService/GetActiveUsers" style="document" />
       <wsdl:input>
@@ -289,6 +348,42 @@
     </wsdl:operation>
     <wsdl:operation name="AssignUserRole">
       <soap:operation soapAction="http://tempuri.org/ILoginService/AssignUserRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailExist">
+      <soap:operation soapAction="http://tempuri.org/ILoginService/EmailExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsernameExist">
+      <soap:operation soapAction="http://tempuri.org/ILoginService/UsernameExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserIdExist">
+      <soap:operation soapAction="http://tempuri.org/ILoginService/UserIdExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdminByUsername">
+      <soap:operation soapAction="http://tempuri.org/ILoginService/GetAdminByUsername" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

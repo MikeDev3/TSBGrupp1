@@ -1,0 +1,100 @@
+﻿body {
+}
+
+.login-page {
+    width: 360px;
+    padding: 1% 1% 10%;
+    margin: auto;
+}
+
+.form {
+    position: absolute;
+    background-color: white;
+    opacity: 0.7;
+    max-width: 360px;
+    border-radius: 10%;
+    padding: 20px;
+    width: 40%;
+    height: 30%;
+    padding: 45px;
+    text-align: center;
+    left: 41%;
+    top: 25%;
+}
+.bakgrundsbildlogin {
+    // background-image: url(https://images.unsplash.com/photo-1437422061949-f6efbde0a471?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80);
+    background-image: url(https://scontent-arn2-1.xx.fbcdn.net/v/t1.15752-9/54236757_1329312470558574_7049580571705475072_n.png?_nc_cat=100&_nc_ht=scontent-arn2-1.xx&oh=af84e9d84b646db85d4df1ffbf21ee5e&oe=5D1A6321);
+    width: 100%;
+    height: 1200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+}
+
+.login-form {
+    width: 100%;
+    height: 43%;
+    background-color: antiquewhite;
+    opacity: 1;
+    margin-top: 30%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 10%;
+    font-size: 16px;
+}
+
+.innehåll, .w3-panel { /*Den responsiva designen på sidebaren kommer ifrån med dess tillhörande css klass https://www.w3schools.com/howto/howto_css_sidebar_responsive.asp/ 
+                            och innefattar härifrån till cirka rad 465
+                        */
+    padding-left: 15px;
+    padding: 0.01em 16px;
+}
+
+    .innehåll:after, .innehåll:before, .w3-panel:after, .w3-panel:before, .w3-row:after, .w3-row:before, .w3-row-padding:after, .w3-row-padding:before,
+    .w3-cell-row:before, .w3-cell-row:after, .w3-clear:after, .w3-clear:before, .w3-bar:before, .w3-bar:after {
+        content: "";
+        display: table;
+        clear: both
+    }
+
+.h2StyleLogIn {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    top: 20%;
+    color: white;
+    font-size: 50px;
+    padding-top: 5%;
+}
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    font-size: 15px;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10%;
+}
+
+.logoutbtn {
+    background-color: #0080FF;
+    border: none;
+    border-radius: 6px;
+    color: floralwhite;
+    padding: 13px 26px;
+    text-align: center;
+    font-size: 16px;
+    margin: 10px 30px;
+    opacity: 0.8;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    .logoutbtn:hover {
+        background-color: white;
+        color: black;
+    }

@@ -88,8 +88,8 @@
   <xs:element name="InterfaceBlockedUser" nillable="true" type="tns:InterfaceBlockedUser" />
   <xs:complexType name="InterfaceAdmin">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ID" type="xs:int" />
-      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -100,4 +100,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfInterfaceUser" nillable="true" type="tns:ArrayOfInterfaceUser" />
+  <xs:complexType name="ArrayOfInterfaceAdmin">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InterfaceAdmin" nillable="true" type="tns:InterfaceAdmin" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInterfaceAdmin" nillable="true" type="tns:ArrayOfInterfaceAdmin" />
 </xs:schema>
