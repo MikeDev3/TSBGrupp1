@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Loinprojekt_admin.LoginService.InterfaceUser>
+@{
+    ViewBag.Title = "User accounts";
+}
+<form>
+    <br />
+    <input type="text" name="search" placeholder="Search..." />
+    <input type="submit" name="search" value="Search account" />
+
+</form>
+<h2>List of user accounts</h2>
+<table class="table">
+
+    <tr>
+
+        <th>Username</th>
+        <th>Status</th>
+        <th>Role</th>
+
+    </tr>
+    
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>@Html.DisplayFor(m => item.Username)</td>
+        <td>@Html.DisplayFor(m => item.Status.StatusName)</td>
+        <td>@Html.DisplayFor(m => item.Roles.Role)</td>
+
+
+        <td>@Html.ActionLink("Go to profile", "ShowProfile", new { id = item.ID })</td>
+        <td>@Html.ActionLink("Add permissions", "AddPermission",new { id = item.ID })</td>
+        <td>@Html.ActionLink("Delete account", "Delete", "Home", new { id = item.ID })</td>
+    </tr>
+    }
+
+
+
+</table>

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Loinprojekt_admin.LoginService.InterfaceFlaggedUser>
+@{
+    ViewBag.Title = "Flagged users";
+}
+<form>
+    <br />
+    <input type="text" name="search" placeholder="Search..." />
+    <input type="submit" name="search" value="Search account" />
+
+</form>
+<h2>List of flagged users</h2>
+<table class="table">
+    <tr>
+        <th>Username</th>
+        <th>Reason</th>
+        <th>Flagged by</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+
+        <td>@Html.DisplayFor(m => item.WhoIsFlagged.Username)</td>
+        <td>@Html.DisplayFor(m => item.Reason)</td>
+        <td>@Html.DisplayFor(m => item.FlaggedBy.Username)</td>
+        <td>
+
+            @Html.ActionLink("Go to profile", "Index", "Home", new { id = item.ID }, new { onclick = "Profile();" })
+            <!-- Kolla med profilgruppen-->
+        </td>
+        <td>
+            @Html.ActionLink("Block user", "BlockUser", "Home", new { id = item.ID }, new { onclick = "Block();" })
+        </td>
+        <td>
+            @Html.ActionLink("Unflag", "Unflag", new { id = item.ID })
+        </td>
+        <td>
+            @Html.ActionLink("Delete account", "DeleteAccount", "Home", new { id = item.ID }, new { onclick = "Delete();" })
+        </td>
+    </tr>
+    }
+    
+</table>

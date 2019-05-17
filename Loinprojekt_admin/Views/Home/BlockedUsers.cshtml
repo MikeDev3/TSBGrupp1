@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Loinprojekt_admin.LoginService.InterfaceBlockedUser>
+@{
+                ViewBag.Title = "Blocked users";
+}
+<form>
+    <br />
+    <input type="text" name="search" placeholder="Search..." />
+    <input type="submit" name="search" value="Search account" />
+
+</form>
+<h2>List of blocked users</h2>
+<table class="table">
+    <tr>
+        <th>Username</th>
+        <th>Reason</th>
+        <th>Blocked by</th>
+        <th>Blocked from</th>
+        <th>Blocked to</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@Html.DisplayFor(m => item.UserObject.Username)</td>
+        <td>@Html.DisplayFor(m => item.Reason)</td>
+        <td>@Html.DisplayFor(m => item.SuspendedBy)</td>
+        <td>@Html.DisplayFor(m => item.DateFrom)</td>
+        <td>@Html.DisplayFor(m => item.DateTo)</td>
+
+        <td>
+            @Html.ActionLink("Go to profile", "Index", "Home", new { id = item.ID }, new { onclick = "Profile();" })
+            <!-- Kolla med profilgruppen-->
+        </td>
+        <td>
+            @Html.ActionLink("Delete account", "DeleteAccount", "Home", new { id = item.ID }, new { onclick = "Delete();" })
+        </td>
+    </tr>
+    }
+
+</table>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Loinprojekt_admin.LoginService.InterfaceUser>
+@{
+    ViewBag.Title = "Moderator accounts";
+}
+<form>
+    <br />
+    <input type="text" name="search" placeholder="Search..." />
+    <input type="submit" name="search" value="Search account" />
+
+</form>
+<h2>List of moderator accounts</h2>
+<table class="table">
+    <tr>
+        <th>Username</th>
+        <th>Status</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@Html.DisplayFor(m => item.Username)</td>
+        <td>@Html.DisplayFor(m => item.Status.StatusName)</td>
+
+
+
+        <td>
+            @Html.ActionLink("Go to profile", "Index", new { id = item.ID })
+        </td>
+        <td>
+            @Html.ActionLink("Delete permission", "DeletePermission", new { id = item.ID })
+        </td>
+        <td>
+            @Html.ActionLink("Delete account", "DeleteAccount", new { id = item.ID })
+        </td>
+    </tr>
+    }
+
+    
+</table>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="35db636a-ad27-4c9e-a498-3c92ce33d258" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://193.10.202.81/UserProfileService/UserProfileService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UserProfileService.xsd" MetadataType="Schema" ID="aa3e9813-491b-46d9-ab43-3475b32a61dd" SourceId="1" SourceUrl="http://193.10.202.81/UserProfileService/UserProfileService.svc?xsd=xsd0" />
+    <MetadataFile FileName="UserProfileService.wsdl" MetadataType="Wsdl" ID="a0a4061a-5424-452b-9408-c8394884267e" SourceId="1" SourceUrl="http://193.10.202.81/UserProfileService/UserProfileService.svc?wsdl" />
+    <MetadataFile FileName="UserProfileService.disco" MetadataType="Disco" ID="9c4ca1bd-233c-44ba-94c2-b31095d507ad" SourceId="1" SourceUrl="http://193.10.202.81/UserProfileService/UserProfileService.svc?disco" />
+    <MetadataFile FileName="UserProfileService1.xsd" MetadataType="Schema" ID="02074b2c-bd36-4d2c-810e-9eb67e91b144" SourceId="1" SourceUrl="http://193.10.202.81/UserProfileService/UserProfileService.svc?xsd=xsd2" />
+    <MetadataFile FileName="UserProfileService2.xsd" MetadataType="Schema" ID="55d93381-fe1c-4f5e-b2dd-48596c7f46cd" SourceId="1" SourceUrl="http://193.10.202.81/UserProfileService/UserProfileService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
