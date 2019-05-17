@@ -24,17 +24,17 @@
         <td>@Html.DisplayFor(m => item.FlaggedBy.Username)</td>
         <td>
 
-            @Html.ActionLink("Go to profile", "Index", "Home", new { id = item.ID }, new { onclick = "Profile();" })
+            @Html.ActionLink("Go to profile", "ShowProfile", new { id = item.ID })
             <!-- Kolla med profilgruppen-->
         </td>
         <td>
-            @Html.ActionLink("Block user", "BlockUser", "Home", new { id = item.ID }, new { onclick = "Block();" })
+            @Html.ActionLink("Block user", "BlockUser", "Home", new { id = item.ID })
         </td>
         <td>
             @Html.ActionLink("Unflag", "Unflag", new { id = item.ID })
         </td>
         <td>
-            @Html.ActionLink("Delete account", "DeleteAccount", "Home", new { id = item.ID }, new { onclick = "Delete();" })
+            @Html.ActionLink("Delete account", "DeleteAccount", new { id = item.ID })
         </td>
     </tr>
     }
