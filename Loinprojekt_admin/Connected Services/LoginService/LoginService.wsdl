@@ -67,6 +67,12 @@
   <wsdl:message name="ILoginService_GetModerators_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetModeratorsResponse" />
   </wsdl:message>
+  <wsdl:message name="ILoginService_GetAdmins_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdmins" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_GetAdmins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdminsResponse" />
+  </wsdl:message>
   <wsdl:message name="ILoginService_GetActiveUsers_InputMessage">
     <wsdl:part name="parameters" element="tns:GetActiveUsers" />
   </wsdl:message>
@@ -155,6 +161,10 @@
     <wsdl:operation name="GetModerators">
       <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/GetModerators" message="tns:ILoginService_GetModerators_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/GetModeratorsResponse" message="tns:ILoginService_GetModerators_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdmins">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/GetAdmins" message="tns:ILoginService_GetAdmins_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/GetAdminsResponse" message="tns:ILoginService_GetAdmins_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetActiveUsers">
       <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/GetActiveUsers" message="tns:ILoginService_GetActiveUsers_InputMessage" />
@@ -274,6 +284,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetModerators">
       <soap:operation soapAction="http://tempuri.org/ILoginService/GetModerators" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdmins">
+      <soap:operation soapAction="http://tempuri.org/ILoginService/GetAdmins" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

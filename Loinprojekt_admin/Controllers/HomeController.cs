@@ -10,7 +10,6 @@ namespace Loinprojekt_admin.Controllers
     {
         public ActionResult Index()
         {
-            
             return View();
         }
         //funkar
@@ -103,6 +102,8 @@ namespace Loinprojekt_admin.Controllers
 
         public ActionResult Contact()
         {
+            LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
+            client.GetAdmins();
             return View();
         }
         public ActionResult LogOut()

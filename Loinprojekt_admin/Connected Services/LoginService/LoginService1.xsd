@@ -138,6 +138,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAdmins">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdminsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/LoginProject.Interface" minOccurs="0" name="GetAdminsResult" nillable="true" type="q6:ArrayOfInterfaceAdmin" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetActiveUsers">
     <xs:complexType>
       <xs:sequence />
@@ -146,7 +158,7 @@
   <xs:element name="GetActiveUsersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/LoginProject.Interface" minOccurs="0" name="GetActiveUsersResult" nillable="true" type="q6:ArrayOfInterfaceUser" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/LoginProject.Interface" minOccurs="0" name="GetActiveUsersResult" nillable="true" type="q7:ArrayOfInterfaceUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

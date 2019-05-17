@@ -850,6 +850,9 @@ namespace Loinprojekt_admin.LoginService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -865,6 +868,19 @@ namespace Loinprojekt_admin.LoginService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
             }
         }
         
@@ -980,6 +996,12 @@ namespace Loinprojekt_admin.LoginService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/GetModerators", ReplyAction="http://tempuri.org/ILoginService/GetModeratorsResponse")]
         System.Threading.Tasks.Task<Loinprojekt_admin.LoginService.InterfaceUser[]> GetModeratorsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/GetAdmins", ReplyAction="http://tempuri.org/ILoginService/GetAdminsResponse")]
+        Loinprojekt_admin.LoginService.InterfaceAdmin[] GetAdmins();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/GetAdmins", ReplyAction="http://tempuri.org/ILoginService/GetAdminsResponse")]
+        System.Threading.Tasks.Task<Loinprojekt_admin.LoginService.InterfaceAdmin[]> GetAdminsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/GetActiveUsers", ReplyAction="http://tempuri.org/ILoginService/GetActiveUsersResponse")]
         Loinprojekt_admin.LoginService.InterfaceUser[] GetActiveUsers();
@@ -1135,6 +1157,14 @@ namespace Loinprojekt_admin.LoginService {
         
         public System.Threading.Tasks.Task<Loinprojekt_admin.LoginService.InterfaceUser[]> GetModeratorsAsync() {
             return base.Channel.GetModeratorsAsync();
+        }
+        
+        public Loinprojekt_admin.LoginService.InterfaceAdmin[] GetAdmins() {
+            return base.Channel.GetAdmins();
+        }
+        
+        public System.Threading.Tasks.Task<Loinprojekt_admin.LoginService.InterfaceAdmin[]> GetAdminsAsync() {
+            return base.Channel.GetAdminsAsync();
         }
         
         public Loinprojekt_admin.LoginService.InterfaceUser[] GetActiveUsers() {

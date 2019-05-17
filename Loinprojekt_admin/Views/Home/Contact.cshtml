@@ -1,7 +1,24 @@
-﻿
+﻿@model IEnumerable<Loinprojekt_admin.LoginService.InterfaceAdmin>
 @{
     ViewBag.Title = "Contact";
 }
 
 <h2>Contact</h2>
 
+<table class="table">
+
+    <tr>
+
+        <th>Username</th>
+        <th>Email</th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(m => item.Username)</td>
+            <td>@Html.DisplayFor(m => item.Email)</td>
+        </tr>
+    }
+</table>

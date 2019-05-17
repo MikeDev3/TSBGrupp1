@@ -161,6 +161,9 @@
     <Content Include="Connected Services\LoginService\Loinprojekt_admin.LoginService.InterfaceBlockedUser.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\LoginService\Loinprojekt_admin.LoginService.InterfaceAdmin.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\LoginService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
