@@ -1010,6 +1010,24 @@ namespace Loinprojekt_admin.LoginService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/AssignUserRole", ReplyAction="http://tempuri.org/ILoginService/AssignUserRoleResponse")]
         System.Threading.Tasks.Task<bool> AssignUserRoleAsync(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/EmailExist", ReplyAction="http://tempuri.org/ILoginService/EmailExistResponse")]
+        bool EmailExist(string Email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/EmailExist", ReplyAction="http://tempuri.org/ILoginService/EmailExistResponse")]
+        System.Threading.Tasks.Task<bool> EmailExistAsync(string Email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/UsernameExist", ReplyAction="http://tempuri.org/ILoginService/UsernameExistResponse")]
+        bool UsernameExist(string Username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/UsernameExist", ReplyAction="http://tempuri.org/ILoginService/UsernameExistResponse")]
+        System.Threading.Tasks.Task<bool> UsernameExistAsync(string Username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/UserIdExist", ReplyAction="http://tempuri.org/ILoginService/UserIdExistResponse")]
+        bool UserIdExist(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/UserIdExist", ReplyAction="http://tempuri.org/ILoginService/UserIdExistResponse")]
+        System.Threading.Tasks.Task<bool> UserIdExistAsync(int ID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1157,6 +1175,30 @@ namespace Loinprojekt_admin.LoginService {
         
         public System.Threading.Tasks.Task<bool> AssignUserRoleAsync(int ID) {
             return base.Channel.AssignUserRoleAsync(ID);
+        }
+        
+        public bool EmailExist(string Email) {
+            return base.Channel.EmailExist(Email);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EmailExistAsync(string Email) {
+            return base.Channel.EmailExistAsync(Email);
+        }
+        
+        public bool UsernameExist(string Username) {
+            return base.Channel.UsernameExist(Username);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UsernameExistAsync(string Username) {
+            return base.Channel.UsernameExistAsync(Username);
+        }
+        
+        public bool UserIdExist(int ID) {
+            return base.Channel.UserIdExist(ID);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UserIdExistAsync(int ID) {
+            return base.Channel.UserIdExistAsync(ID);
         }
     }
 }
