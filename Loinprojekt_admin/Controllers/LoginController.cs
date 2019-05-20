@@ -27,31 +27,37 @@ namespace Loinprojekt_admin.Controllers
 
             // Om inloggningen är godkänd, dvs att responce-variabeln är true
             if (response)
-                        {
+
+            {
                 /*
                  Här skapas ett objekt som tilldelas värdena av en användares Id, Email och användarnamn.
                  Dessa data hämtas från webservicen.
-                 /*
+                 */
                 Models.AdminModel sessionObjekt = new Models.AdminModel();
-                           sessionObjekt.email = klient.GetAdminByUsername(username).Email;
-                             sessionObjekt.ID = klie
-                             nt.GetAdminByUsername(username).ID;
-                             sessionObjekt.username = klient.GetAdminByUsername(username).Username;
+                sessionObjekt.email = klient.GetAdminByUsername(username).Email;
+                sessionObjekt.ID = klient.GetAdminByUsername(username).ID;
+                sessionObjekt.username = klient.GetAdminByUsername(username).Username;
                              // De olika värdena lagras i en array
                               Session["admin"] = sessionObjekt;
-                              // Flytta användaren från login-sidan
-    System.Web.Security.FormsAuthentication.RedirectFromLoginPage(username, false);
-    // När inloggningen är klar hamnar användaren på förstasidan, nu som inloggad admin
-    return RedirectToAction("Index", "Home");
-                        }
-                       
-                        else
-                        {
-// Om inloggningen inte gick så bra visas ett felmeddelande
-                            ModelState.AddModelError("Felmeddelande", "Inloggningen misslyckades");
-                            return View();
 
-                        }
+              //  ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+
+                // Flytta användaren från login-sidan
+                System.Web.Security.FormsAuthentication.RedirectFromLoginPage(username, false);
+                // När inloggningen är klar hamnar användaren på förstasidan, nu som inloggad admin
+                return RedirectToAction("Index", "Home");
+
+
+            }
+            else
+            {
+
+                // Om inloggningen inte gick så bra visas ett felmeddelande
+
+                ModelState.AddModelError("Felmeddelande", "Inloggningen misslyckades");
+
+                return View();
+            }
                   
                 // Session["Username"] = "Inloggad som - " + data;
         }

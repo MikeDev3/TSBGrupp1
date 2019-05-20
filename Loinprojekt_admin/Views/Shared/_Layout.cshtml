@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/CSS/Style.css" />
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -33,12 +34,16 @@
                     </li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
+                <div style="float:right">
+                    @if (HttpContext.Current.Session["admin"] != null)
+                    {
+                        <p style="color: wheat" class="menuBarItem"> @ViewBag.Username </p>
+                        <div style="margin-right: 0%">
+                            <button class="logoutbtn">@Html.ActionLink("Logga ut", "LogOut", "Login")</button>
+                        </div>
+                    }
+                </div>
             </div>
-            @if (HttpContext.Current.Session["admin"] != null)
-            {
-                <p style="color: #DDDDDD" class="menuBarItem"> @ViewBag.Username </p>
-                <button class="logoutbtn">@Html.ActionLink("Logga ut", "LogOut", "Login")</button>
-            }
         </div>
     </div>
     <div class="container body-content">

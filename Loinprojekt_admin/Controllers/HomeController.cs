@@ -10,6 +10,9 @@ namespace Loinprojekt_admin.Controllers
     {
         public ActionResult Index()
         {
+            Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
+
+            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
             return View();
         }
         //funkar

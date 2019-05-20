@@ -856,9 +856,6 @@ namespace Loinprojekt_admin.LoginService {
         private int IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PasswordField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UsernameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -893,19 +890,6 @@ namespace Loinprojekt_admin.LoginService {
                 if ((this.IDField.Equals(value) != true)) {
                     this.IDField = value;
                     this.RaisePropertyChanged("ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Password {
-            get {
-                return this.PasswordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
-                    this.PasswordField = value;
-                    this.RaisePropertyChanged("Password");
                 }
             }
         }
@@ -1050,6 +1034,12 @@ namespace Loinprojekt_admin.LoginService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/UserIdExist", ReplyAction="http://tempuri.org/ILoginService/UserIdExistResponse")]
         System.Threading.Tasks.Task<bool> UserIdExistAsync(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/GetAdminByUsername", ReplyAction="http://tempuri.org/ILoginService/GetAdminByUsernameResponse")]
+        Loinprojekt_admin.LoginService.InterfaceAdmin GetAdminByUsername(string Username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/GetAdminByUsername", ReplyAction="http://tempuri.org/ILoginService/GetAdminByUsernameResponse")]
+        System.Threading.Tasks.Task<Loinprojekt_admin.LoginService.InterfaceAdmin> GetAdminByUsernameAsync(string Username);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1229,6 +1219,14 @@ namespace Loinprojekt_admin.LoginService {
         
         public System.Threading.Tasks.Task<bool> UserIdExistAsync(int ID) {
             return base.Channel.UserIdExistAsync(ID);
+        }
+        
+        public Loinprojekt_admin.LoginService.InterfaceAdmin GetAdminByUsername(string Username) {
+            return base.Channel.GetAdminByUsername(Username);
+        }
+        
+        public System.Threading.Tasks.Task<Loinprojekt_admin.LoginService.InterfaceAdmin> GetAdminByUsernameAsync(string Username) {
+            return base.Channel.GetAdminByUsernameAsync(Username);
         }
     }
 }
