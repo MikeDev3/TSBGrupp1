@@ -1,59 +1,69 @@
-﻿<!DOCTYPE html>
+﻿
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/CSS/Style.css" />
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    <title>@ViewBag.Title - Finder</title>
+    <LINK REL="SHORTCUT ICON"
+          HREF="~/Content/Images/findericon.png">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <label>  @Html.ActionLink("Finder Admin", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</label>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li class="dropdown">
-                        <a style="cursor:pointer;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Users<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Active users", "ActiveUsers", "Home")</li>
-                            <li>@Html.ActionLink("Flagged errands", "FlaggedErrands", "Home")</li>
-                            <li>@Html.ActionLink("Blocked users", "BlockedUsers", "Home")</li>
-                            <li>@Html.ActionLink("Moderators", "Moderators", "Home")</li>
+    <div class="header">
+        <img alt="Finder" src="//i.imgur.com/YHlSO2T.png" style="max-width: 100% ;
+         min-height: 53px ; cursor:pointer" onclick="window.location = '/';" />
+        <input type="text" placeholder="  Search..">
+        <input type="submit" value="Search" />
+        <div style="float:right">
 
-                        </ul>
-                    </li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                <div style="float:right">
-                    @if (HttpContext.Current.Session["admin"] != null)
-                    {
-                        <p style="color: wheat" class="menuBarItem"> @ViewBag.Username </p>
-                        <div style="margin-right: 0%">
-                            <button class="logoutbtn">@Html.ActionLink("Logga ut", "LogOut", "Login")</button>
-                        </div>
-                    }
+            @if (HttpContext.Current.Session["admin"] != null)
+            {
+                <div style="margin-right: 0%">
+                <p style="color: black" class="menuBarItem"> @ViewBag.Username </p>
+                    <button class="logoutbtn" style="color: brown">@Html.ActionLink("Logga ut", "LogOut", "Login")</button>
                 </div>
-            </div>
+            }
+
         </div>
+
+       
     </div>
+
+
+    <br />
+    <div class="line"> </div>
+    <div class="header-bottom">
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            <li class="dropdown">
+                <a style="cursor:pointer;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Users<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("Active users", "ActiveUsers", "Home")</li>
+                    <li>@Html.ActionLink("Flagged errands", "FlaggedErrands", "Home")</li>
+                    <li>@Html.ActionLink("Blocked users", "BlockedUsers", "Home")</li>
+                    <li>@Html.ActionLink("Moderators", "Moderators", "Home")</li>
+
+                </ul>
+            </li>
+            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+        </ul>
+
+    </div>
+    <div class="line"> </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Min ASP.Net webbsida</p>
-        </footer>
     </div>
-
+    <div class="footer">
+        <br />
+        <img class="logo1" src="//i.imgur.com/YHlSO2T.png" height="90">
+        <p style="color: white">&copy; @DateTime.Now.Year - Min ASP.Net webbsida</p>
+    </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

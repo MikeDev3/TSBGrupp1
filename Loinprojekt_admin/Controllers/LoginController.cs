@@ -38,7 +38,7 @@ namespace Loinprojekt_admin.Controllers
                 sessionObjekt.ID = klient.GetAdminByUsername(username).ID;
                 sessionObjekt.username = klient.GetAdminByUsername(username).Username;
                              // De olika värdena lagras i en array
-                              Session["admin"] = sessionObjekt;
+                Session["admin"] = sessionObjekt;
 
               //  ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
 
