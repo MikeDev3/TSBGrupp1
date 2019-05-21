@@ -21,10 +21,17 @@
 
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>@Html.DisplayFor(m => item.Username)</td>
-                    <td>@Html.DisplayFor(m => item.Email)</td>
-                </tr>
+            <tr>
+                <td>@Html.DisplayFor(m => item.Username)</td>
+                <td>@Html.DisplayFor(m => item.Email)</td>
+                <!--
+                     Man kanske vill visa email som en länk?
+                     <td><a href= "a Href(mailto:item.Email)"></a></td>
+
+                 -->
+
+
+            </tr>
             }
         </table>
     </div>

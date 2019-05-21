@@ -16,6 +16,7 @@ namespace Loinprojekt_admin
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            LoggingConfig.RegisterLogging();
         }
     }
 }
