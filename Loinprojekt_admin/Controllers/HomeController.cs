@@ -6,16 +6,23 @@ using System.Web.Mvc;
 
 namespace Loinprojekt_admin.Controllers
 {
+     [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
+            Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
+
+            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
             return View();
         }
         //funkar
         // Metod för att visa en profil, tar en användares Id som inparameter för att kunna visa denna specifika profil
         public ActionResult ShowProfile(int id)
         {
+            Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
+
+            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
             try
             {
                 // Anrop till webservicen
@@ -44,6 +51,9 @@ namespace Loinprojekt_admin.Controllers
         // Metod för att visa aktiva användare
         public ActionResult ActiveUsers()
         {
+            Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
+
+            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
             try
             {
                 // Anrop till webservicen
@@ -70,6 +80,9 @@ namespace Loinprojekt_admin.Controllers
         // Metod för att visa alla moderatorer
         public ActionResult Moderators()
         {
+            Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
+
+            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
             try
             {
                 // Anrop till webservicen
@@ -97,6 +110,9 @@ namespace Loinprojekt_admin.Controllers
         // Metod för att visa alla flaggade ärenden
         public ActionResult FlaggedErrands()
         {
+            Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
+
+            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
             try
             {
                 // Anrop till webservicen
@@ -123,6 +139,9 @@ namespace Loinprojekt_admin.Controllers
         // Metod för att visa alla blockade användare
         public ActionResult BlockedUsers()
         {
+            Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
+
+            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
             try
             {
                 // Anrop till webservicen
@@ -149,6 +168,9 @@ namespace Loinprojekt_admin.Controllers
         // Metod för att radera en användare, tar den specifika användarens Id som inparamteter
         public ActionResult Delete(int id)
         {
+            Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
+
+            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
             try
             {
                 // Anrop till webservicen
@@ -179,6 +201,9 @@ namespace Loinprojekt_admin.Controllers
          */
         public ActionResult ConfirmDelete(int id)
         {
+            Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
+
+            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
             try
             {
                 // Anrop till webservicen
@@ -202,6 +227,9 @@ namespace Loinprojekt_admin.Controllers
         */
         public ActionResult AddPermission(int id)
         {
+            Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
+
+            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
 
             try
             {
@@ -234,6 +262,9 @@ namespace Loinprojekt_admin.Controllers
         */
         public ActionResult DeletePermission(int id)
         {
+            Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
+
+            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
             try
             {
                 // Anrop till webservicen
@@ -260,6 +291,9 @@ namespace Loinprojekt_admin.Controllers
         // Metod för att ta bort flaggan från en användare, tar den specifika användarens Id som inparameter
         public ActionResult Unflag(int id)
         {
+            Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
+
+            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
             try
             {
                 // Anrop till webservicen
@@ -297,6 +331,9 @@ namespace Loinprojekt_admin.Controllers
 // Metod för kontaktvyn, där man ska kunna kontakta andra admins
         public ActionResult Contact()
         {
+              Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
+
+            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
             try
             {
                 // Anrop till webservicen
