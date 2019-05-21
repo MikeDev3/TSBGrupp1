@@ -40,7 +40,7 @@
 
                     <td>@Html.ActionLink("Go to profile", "ShowProfile", new { id = item.ID })</td>
                     <td>@Html.ActionLink("Add permissions", "AddPermission", new { id = item.ID })</td>
-                    <td>@Html.ActionLink("Delete account", "Delete", "Home", new { id = item.ID })</td>
+                    <td>@Html.ActionLink("Delete account", "Delete", new { id = item.ID })</td>
                 </tr>
             }
 

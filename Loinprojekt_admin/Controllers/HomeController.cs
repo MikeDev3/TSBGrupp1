@@ -206,8 +206,9 @@ namespace Loinprojekt_admin.Controllers
             ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
             try
             {
+                UserService.UserProfileServiceClient client = new UserService.UserProfileServiceClient();
+
                 // Anrop till webservicen
-                LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
                 // Anrop till webservicens metod för att radera en användare, där vi skickar me med den specifika användarens Id
                 client.DeleteUser(id);
                 // När raderingen slutförs, återvänd till sidan som visar alla aktiva användare

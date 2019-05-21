@@ -19,23 +19,59 @@
   <wsdl:message name="IUserProfileService_UpdateUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IUserProfileService_DeleteUserProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserProfile" />
+  </wsdl:message>
+  <wsdl:message name="IUserProfileService_DeleteUserProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserProfileService_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserProfileService_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserProfileService_UserIdExistsInProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserIdExistsInProfile" />
+  </wsdl:message>
+  <wsdl:message name="IUserProfileService_UserIdExistsInProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserIdExistsInProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserProfileService_EmailExistsInProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:EmailExistsInProfile" />
+  </wsdl:message>
+  <wsdl:message name="IUserProfileService_EmailExistsInProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EmailExistsInProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserProfileService_UserNameExistsInProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserNameExistsInProfile" />
+  </wsdl:message>
+  <wsdl:message name="IUserProfileService_UserNameExistsInProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserNameExistsInProfileResponse" />
+  </wsdl:message>
   <wsdl:message name="IUserProfileService_GetAllUsers_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllUsers" />
   </wsdl:message>
   <wsdl:message name="IUserProfileService_GetAllUsers_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllUsersResponse" />
   </wsdl:message>
-  <wsdl:message name="IUserProfileService_GetUserByUserName_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetUserByUserName" />
+  <wsdl:message name="IUserProfileService_GetUserByUserNameOrEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByUserNameOrEmail" />
   </wsdl:message>
-  <wsdl:message name="IUserProfileService_GetUserByUserName_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetUserByUserNameResponse" />
+  <wsdl:message name="IUserProfileService_GetUserByUserNameOrEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByUserNameOrEmailResponse" />
   </wsdl:message>
   <wsdl:message name="IUserProfileService_GetUserByUserId_InputMessage">
     <wsdl:part name="parameters" element="tns:GetUserByUserId" />
   </wsdl:message>
   <wsdl:message name="IUserProfileService_GetUserByUserId_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUserByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserProfileService_GetLatestLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestLog" />
+  </wsdl:message>
+  <wsdl:message name="IUserProfileService_GetLatestLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestLogResponse" />
   </wsdl:message>
   <wsdl:portType name="IUserProfileService">
     <wsdl:operation name="CreateUser">
@@ -46,17 +82,41 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IUserProfileService/UpdateUser" message="tns:IUserProfileService_UpdateUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserProfileService/UpdateUserResponse" message="tns:IUserProfileService_UpdateUser_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="DeleteUserProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserProfileService/DeleteUserProfile" message="tns:IUserProfileService_DeleteUserProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserProfileService/DeleteUserProfileResponse" message="tns:IUserProfileService_DeleteUserProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserProfileService/DeleteUser" message="tns:IUserProfileService_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserProfileService/DeleteUserResponse" message="tns:IUserProfileService_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserIdExistsInProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserProfileService/UserIdExistsInProfile" message="tns:IUserProfileService_UserIdExistsInProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserProfileService/UserIdExistsInProfileResponse" message="tns:IUserProfileService_UserIdExistsInProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmailExistsInProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserProfileService/EmailExistsInProfile" message="tns:IUserProfileService_EmailExistsInProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserProfileService/EmailExistsInProfileResponse" message="tns:IUserProfileService_EmailExistsInProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserNameExistsInProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserProfileService/UserNameExistsInProfile" message="tns:IUserProfileService_UserNameExistsInProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserProfileService/UserNameExistsInProfileResponse" message="tns:IUserProfileService_UserNameExistsInProfile_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetAllUsers">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserProfileService/GetAllUsers" message="tns:IUserProfileService_GetAllUsers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserProfileService/GetAllUsersResponse" message="tns:IUserProfileService_GetAllUsers_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetUserByUserName">
-      <wsdl:input wsaw:Action="http://tempuri.org/IUserProfileService/GetUserByUserName" message="tns:IUserProfileService_GetUserByUserName_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IUserProfileService/GetUserByUserNameResponse" message="tns:IUserProfileService_GetUserByUserName_OutputMessage" />
+    <wsdl:operation name="GetUserByUserNameOrEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserProfileService/GetUserByUserNameOrEmail" message="tns:IUserProfileService_GetUserByUserNameOrEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserProfileService/GetUserByUserNameOrEmailResponse" message="tns:IUserProfileService_GetUserByUserNameOrEmail_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetUserByUserId">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserProfileService/GetUserByUserId" message="tns:IUserProfileService_GetUserByUserId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserProfileService/GetUserByUserIdResponse" message="tns:IUserProfileService_GetUserByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserProfileService/GetLatestLog" message="tns:IUserProfileService_GetLatestLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserProfileService/GetLatestLogResponse" message="tns:IUserProfileService_GetLatestLog_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IUserProfileService" type="tns:IUserProfileService">
@@ -79,6 +139,51 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="DeleteUserProfile">
+      <soap:operation soapAction="http://tempuri.org/IUserProfileService/DeleteUserProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IUserProfileService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserIdExistsInProfile">
+      <soap:operation soapAction="http://tempuri.org/IUserProfileService/UserIdExistsInProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailExistsInProfile">
+      <soap:operation soapAction="http://tempuri.org/IUserProfileService/EmailExistsInProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserNameExistsInProfile">
+      <soap:operation soapAction="http://tempuri.org/IUserProfileService/UserNameExistsInProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAllUsers">
       <soap:operation soapAction="http://tempuri.org/IUserProfileService/GetAllUsers" style="document" />
       <wsdl:input>
@@ -88,8 +193,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetUserByUserName">
-      <soap:operation soapAction="http://tempuri.org/IUserProfileService/GetUserByUserName" style="document" />
+    <wsdl:operation name="GetUserByUserNameOrEmail">
+      <soap:operation soapAction="http://tempuri.org/IUserProfileService/GetUserByUserNameOrEmail" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -99,6 +204,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetUserByUserId">
       <soap:operation soapAction="http://tempuri.org/IUserProfileService/GetUserByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestLog">
+      <soap:operation soapAction="http://tempuri.org/IUserProfileService/GetLatestLog" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
