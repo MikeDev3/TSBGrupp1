@@ -16,57 +16,161 @@ namespace Loinprojekt_admin.Controllers
         // Metod för att visa en profil, tar en användares Id som inparameter för att kunna visa denna specifika profil
         public ActionResult ShowProfile(int id)
         {
-            // Anrop till webservicen
-            UserService.UserProfileServiceClient client = new UserService.UserProfileServiceClient();
-            // Vy som använder sig av en metod från webservicen för att hitta en specifik användare
-            return View(client.GetUserByUserId(id));
+            try
+            {
+                // Anrop till webservicen
+                UserService.UserProfileServiceClient client = new UserService.UserProfileServiceClient();
+
+                if (client.GetUserByUserId(id) != null)
+                {
+                    // Vy som använder sig av en metod från webservicen för att hitta en specifik användare
+                    return View(client.GetUserByUserId(id));
+
+                }
+                else
+                {
+                    ModelState.AddModelError("Felmeddelande", "No profile to show here");
+                    return View();
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return View("Error", new HandleErrorInfo(ex, "Home", "ActiveUsers"));
+            }
         }
         //funkar
         // Metod för att visa aktiva användare
         public ActionResult ActiveUsers()
         {
-            // Anrop till webservicen
-            LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
-            // Anrop till servicens metod för att visa alla aktiva användare
-            return View(client.GetActiveUsers());
+            try
+            {
+                // Anrop till webservicen
+                LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
+                if (client.GetActiveUsers() != null)
+                {
+                    // Anrop till servicens metod för att visa alla aktiva användare
+                    return View(client.GetActiveUsers());
+
+                }
+                else
+                {
+                    ModelState.AddModelError("Felmeddelande", "It seems like there are no active users yet");
+                    return View();
+                }
+            }
+            catch (Exception ex)
+            {
+                return View("Error", new HandleErrorInfo(ex, "Home", "ActiveUsers"));
+            }
         }
+
         //funkar
         // Metod för att visa alla moderatorer
         public ActionResult Moderators()
         {
-            // Anrop till webservicen
-            LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
-// Anrop till webservicens metod för att visa alla moderatorer
-            return View(client.GetModerators());
+            try
+            {
+                // Anrop till webservicen
+                LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
+                if (client.GetModerators() != null)
+                {
+
+                    // Anrop till webservicens metod för att visa alla moderatorer
+                    return View(client.GetModerators());
+
+                }
+                else
+                {
+                    ModelState.AddModelError("Felmeddelande", "It seems like there are no assigned moderators yet");
+                    return View();
+                }
+            }
+            catch (Exception ex)
+            {
+                return View("Error", new HandleErrorInfo(ex, "Home", "ActiveUsers"));
+            }
         }
+
         //funkar
         // Metod för att visa alla flaggade ärenden
         public ActionResult FlaggedErrands()
         {
-            // Anrop till webservicen
-            LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
-            // Anrop till webservicens metod för att visa alla flaggade ärenden
-            return View(client.GetFlaggedUsers());
+            try
+            {
+                // Anrop till webservicen
+                LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
+                if (client.GetFlaggedUsers() != null)
+                {
+                    // Anrop till webservicens metod för att visa alla flaggade ärenden
+                    return View(client.GetFlaggedUsers());
+
+                }
+                else
+                {
+                    ModelState.AddModelError("Felmeddelande", "No flagged users here, good for us!");
+                    return View();
+                }
+            }
+            catch (Exception ex)
+            {
+                return View("Error", new HandleErrorInfo(ex, "Home", "ActiveUsers"));
+            }
         } 
+
         //funkar
         // Metod för att visa alla blockade användare
         public ActionResult BlockedUsers()
         {
-            // Anrop till webservicen
-            LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
-            // Anrop till webservicens metod för att visa alla blockade användare
-            return View(client.GetBlockedUsers());
+            try
+            {
+                // Anrop till webservicen
+                LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
+                if (client.GetBlockedUsers() != null)
+                {
+                    // Anrop till webservicens metod för att visa alla blockade användare
+                    return View(client.GetBlockedUsers());
+                }
+                else
+                {
+                    ModelState.AddModelError("Felmeddelande", "No blocked users, good for us!");
+                    return View();
+                }
+            }
+            catch (Exception ex)
+            {
+                return View("Error", new HandleErrorInfo(ex, "Home", "ActiveUsers"));
+            }
+           
         }
      
         //funkar
         // Metod för att radera en användare, tar den specifika användarens Id som inparamteter
         public ActionResult Delete(int id)
         {
-            // Anrop till webservicen
-            UserService.UserProfileServiceClient client = new UserService.UserProfileServiceClient();
-            // Anrop till webservicens metod för att hitta en specifik användare och visa upp en vy utifrån detta
-            return View(client.GetUserByUserId(id));
+            try
+            {
+                // Anrop till webservicen
+                UserService.UserProfileServiceClient client = new UserService.UserProfileServiceClient();
+                if (client.GetUserByUserId(id) != null)
+                {
+                    // Anrop till webservicens metod för att hitta en specifik användare och visa upp en vy utifrån detta
+                    return View(client.GetUserByUserId(id));
+                }
+                else
+                {
+                    ModelState.AddModelError("Felmeddelande", "Cant find this user");
+                    return View();
+                }
+            }
+            catch (Exception ex)
+            {
+                return View("Error", new HandleErrorInfo(ex, "Home", "ActiveUsers"));
+            }
+
         }
+
         //funkar
         [HttpPost, ActionName("Delete")] [ValidateAntiForgeryToken]
         /*
@@ -75,12 +179,21 @@ namespace Loinprojekt_admin.Controllers
          */
         public ActionResult ConfirmDelete(int id)
         {
-            // Anrop till webservicen
-            LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
-            // Anrop till webservicens metod för att radera en användare, där vi skickar me med den specifika användarens Id
-            client.DeleteUser(id);
-            // När raderingen slutförs, återvänd till sidan som visar alla aktiva användare
-            return RedirectToAction("ActiveUsers");
+            try
+            {
+                // Anrop till webservicen
+                LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
+                // Anrop till webservicens metod för att radera en användare, där vi skickar me med den specifika användarens Id
+                client.DeleteUser(id);
+                // När raderingen slutförs, återvänd till sidan som visar alla aktiva användare
+                ModelState.AddModelError("Felmeddelande", "Konto raderat!");
+                return RedirectToAction("ActiveUsers");
+
+            }
+            catch (Exception ex)
+            {
+                return View("Error", new HandleErrorInfo(ex, "Home", "ActiveUsers"));
+            }
         }
         //funkar
         /*
@@ -89,13 +202,30 @@ namespace Loinprojekt_admin.Controllers
         */
         public ActionResult AddPermission(int id)
         {
-            // Anrop till webservicen
-            LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
-            // Anrop till webservicens metod för att tilldela moderatorsbehörigheter, där vi skickar med den specifika användarens Id
-            client.AssignModeratorRole(id);
 
-           // När behörigheten är tilldelad, återvänd till sidan som visar alla aktiva användare
-            return RedirectToAction("ActiveUsers");
+            try
+            {
+                // Anrop till webservicen
+                LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
+                if (client.AssignModeratorRole(id) == true)
+                {
+                    // Anrop till webservicens metod för att tilldela moderatorsbehörigheter, där vi skickar med den specifika användarens Id
+                    client.AssignModeratorRole(id);
+                    // När behörigheten är tilldelad, återvänd till sidan som visar alla aktiva användare
+                    return RedirectToAction("ActiveUsers");
+                }
+                else
+                {
+                    ModelState.AddModelError("Felmeddelande", "The user is already a moderator");
+                    return View();
+                }
+            }
+            catch (Exception ex)
+            {
+                return View("Error", new HandleErrorInfo(ex, "Home", "ActiveUsers"));
+            }
+
+
         }
         //funkar
         /*
@@ -104,23 +234,54 @@ namespace Loinprojekt_admin.Controllers
         */
         public ActionResult DeletePermission(int id)
         {
-            // Anrop till webservicen
-            LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
-            // Här ropas på webserivcens metod för att lägga till behörigheter, är det rätt?
-            client.AssignUserRole(id);
-            // När behörigheten är raderad, återvänd till sidan som visar alla moderatorer
-            return RedirectToAction("Moderators");
+            try
+            {
+                // Anrop till webservicen
+                LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
+                if (client.AssignUserRole(id) == true)
+                {
+                    // Här ropas på webserivcens metod för att lägga till behörigheter, är det rätt?
+                    client.AssignUserRole(id);
+                    // När behörigheten är raderad, återvänd till sidan som visar alla moderatorer
+                    return RedirectToAction("Moderators");
+                }
+                else
+                {
+                    ModelState.AddModelError("Felmeddelande", "The user is already a normal user");
+                    return View();
+                }
+            }
+            catch (Exception ex)
+            {
+                return View("Error", new HandleErrorInfo(ex, "Home", "ActiveUsers"));
+            }
         }
         //funkar
         // Metod för att ta bort flaggan från en användare, tar den specifika användarens Id som inparameter
         public ActionResult Unflag(int id)
         {
-            // Anrop till webservicen
-            LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
-            // Anrop till webservicens metod för att ta bort flaggan från en användare, här skickar vi med Id:t för den specifika användaren
-            client.UnflagUser(id);
-           // När operationen är klar, återvänd till sidan som visar alla aktiva användare
-            return RedirectToAction("ActiveUsers");
+            try
+            {
+                // Anrop till webservicen
+                LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
+                if (client.AssignUserRole(id) == true)
+                {
+                    // Anrop till webservicens metod för att ta bort flaggan från en användare, här skickar vi med Id:t för den specifika användaren
+                    client.UnflagUser(id);
+                    // När operationen är klar, återvänd till sidan som visar alla aktiva användare
+                    return RedirectToAction("ActiveUsers");
+                }
+                else
+                {
+                    ModelState.AddModelError("Felmeddelande", "The user cant be unflagged");
+                    return View();
+                }
+            }
+            catch (Exception ex)
+            {
+                return View("Error", new HandleErrorInfo(ex, "Home", "ActiveUsers"));
+            }
+
         }
 
 
@@ -136,11 +297,26 @@ namespace Loinprojekt_admin.Controllers
 // Metod för kontaktvyn, där man ska kunna kontakta andra admins
         public ActionResult Contact()
         {
-            // Anrop till webservicen
-            LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
-            // Anrop till webserivcens metod för att hämta alla admins
-            client.GetAdmins();
-            return View();
+            try
+            {
+                // Anrop till webservicen
+                LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
+                if (client.GetAdmins() != null)
+                {
+
+                    // Anrop till webserivcens metod för att hämta alla admins
+                    return View(client.GetAdmins());
+                }
+                else
+                {
+                    ModelState.AddModelError("Felmeddelande", "It seems like there are no admins yet");
+                    return View();
+                }
+            }
+            catch (Exception ex)
+            {
+                return View("Error", new HandleErrorInfo(ex, "Home", "ActiveUsers"));
+            }
         }
         public ActionResult LogOut()
         {

@@ -8,37 +8,49 @@
     <input type="submit" name="search" value="Search account" />
 
 </form>
-<h2>List of flagged users</h2>
-<table class="table">
-    <tr>
-        <th>Username</th>
-        <th>Reason</th>
-        <th>Flagged by</th>
-        <th>Block user</th>
-        <th>Unflag by</th>
-    </tr>
-    @foreach (var item in Model)
-    {
-    <tr>
+<h2 style="color: red; ">@Html.ValidationMessage("Felmeddelande")</h2>
+@if (Model.Count() >0)
+{
+    <h2>List of flagged users</h2>
+  
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
 
-        <td>@Html.DisplayFor(m => item.WhoIsFlagged.Username)</td>
-        <td>@Html.DisplayFor(m => item.Reason)</td>
-        <td>@Html.DisplayFor(m => item.FlaggedBy.Username)</td>
-        <td>
+        <table class="table">
+            <tr>
+                <th>Username</th>
+                <th>Reason</th>
+                <th>Flagged by</th>
+                <th>Block user</th>
+                <th>Unflag by</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
 
-            @Html.ActionLink("Go to profile", "ShowProfile", new { id = item.ID })
-            <!-- Kolla med profilgruppen-->
-        </td>
-        <td>
-            @Html.ActionLink("Block user", "BlockUser", "Home", new { id = item.ID })
-        </td>
-        <td>
-            @Html.ActionLink("Unflag", "Unflag", new { id = item.ID })
-        </td>
-        <td>
-            @Html.ActionLink("Delete account", "DeleteAccount", new { id = item.ID })
-        </td>
-    </tr>
-    }
-    
-</table>
+                    <td>@Html.DisplayFor(m => item.WhoIsFlagged.Username)</td>
+                    <td>@Html.DisplayFor(m => item.Reason)</td>
+                    <td>@Html.DisplayFor(m => item.FlaggedBy.Username)</td>
+                    <td>
+
+                        @Html.ActionLink("Go to profile", "ShowProfile", new { id = item.ID })
+                        <!-- Kolla med profilgruppen-->
+                    </td>
+                    <td>
+                        @Html.ActionLink("Block user", "BlockUser", "Home", new { id = item.ID })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Unflag", "Unflag", new { id = item.ID })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete account", "DeleteAccount", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+}
+else
+{
+    <h2 style="color: red">It seems like there are no moderators yet</h2>
+}
