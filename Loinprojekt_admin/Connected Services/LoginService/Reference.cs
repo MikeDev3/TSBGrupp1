@@ -921,6 +921,12 @@ namespace Loinprojekt_admin.LoginService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LoginService.ILoginService")]
     public interface ILoginService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/IsAlive", ReplyAction="http://tempuri.org/ILoginService/IsAliveResponse")]
+        bool IsAlive();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/IsAlive", ReplyAction="http://tempuri.org/ILoginService/IsAliveResponse")]
+        System.Threading.Tasks.Task<bool> IsAliveAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/CreateUser", ReplyAction="http://tempuri.org/ILoginService/CreateUserResponse")]
         Loinprojekt_admin.LoginService.ReturnUser CreateUser(Loinprojekt_admin.LoginService.NewUser NewUser);
         
@@ -956,6 +962,18 @@ namespace Loinprojekt_admin.LoginService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/CheckUser", ReplyAction="http://tempuri.org/ILoginService/CheckUserResponse")]
         System.Threading.Tasks.Task<bool> CheckUserAsync(string Email, string Password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/CheckModerator", ReplyAction="http://tempuri.org/ILoginService/CheckModeratorResponse")]
+        bool CheckModerator(string Email, string Password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/CheckModerator", ReplyAction="http://tempuri.org/ILoginService/CheckModeratorResponse")]
+        System.Threading.Tasks.Task<bool> CheckModeratorAsync(string Email, string Password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/ModeratorLogin", ReplyAction="http://tempuri.org/ILoginService/ModeratorLoginResponse")]
+        bool ModeratorLogin(string Email, string Password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/ModeratorLogin", ReplyAction="http://tempuri.org/ILoginService/ModeratorLoginResponse")]
+        System.Threading.Tasks.Task<bool> ModeratorLoginAsync(string Email, string Password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/GetUserId", ReplyAction="http://tempuri.org/ILoginService/GetUserIdResponse")]
         int GetUserId(string Email);
@@ -1040,6 +1058,12 @@ namespace Loinprojekt_admin.LoginService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/GetAdminByUsername", ReplyAction="http://tempuri.org/ILoginService/GetAdminByUsernameResponse")]
         System.Threading.Tasks.Task<Loinprojekt_admin.LoginService.InterfaceAdmin> GetAdminByUsernameAsync(string Username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/GetAdminById", ReplyAction="http://tempuri.org/ILoginService/GetAdminByIdResponse")]
+        Loinprojekt_admin.LoginService.InterfaceAdmin GetAdminById(int Id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/GetAdminById", ReplyAction="http://tempuri.org/ILoginService/GetAdminByIdResponse")]
+        System.Threading.Tasks.Task<Loinprojekt_admin.LoginService.InterfaceAdmin> GetAdminByIdAsync(int Id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1067,6 +1091,14 @@ namespace Loinprojekt_admin.LoginService {
         
         public LoginServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public bool IsAlive() {
+            return base.Channel.IsAlive();
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsAliveAsync() {
+            return base.Channel.IsAliveAsync();
         }
         
         public Loinprojekt_admin.LoginService.ReturnUser CreateUser(Loinprojekt_admin.LoginService.NewUser NewUser) {
@@ -1115,6 +1147,22 @@ namespace Loinprojekt_admin.LoginService {
         
         public System.Threading.Tasks.Task<bool> CheckUserAsync(string Email, string Password) {
             return base.Channel.CheckUserAsync(Email, Password);
+        }
+        
+        public bool CheckModerator(string Email, string Password) {
+            return base.Channel.CheckModerator(Email, Password);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CheckModeratorAsync(string Email, string Password) {
+            return base.Channel.CheckModeratorAsync(Email, Password);
+        }
+        
+        public bool ModeratorLogin(string Email, string Password) {
+            return base.Channel.ModeratorLogin(Email, Password);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ModeratorLoginAsync(string Email, string Password) {
+            return base.Channel.ModeratorLoginAsync(Email, Password);
         }
         
         public int GetUserId(string Email) {
@@ -1227,6 +1275,14 @@ namespace Loinprojekt_admin.LoginService {
         
         public System.Threading.Tasks.Task<Loinprojekt_admin.LoginService.InterfaceAdmin> GetAdminByUsernameAsync(string Username) {
             return base.Channel.GetAdminByUsernameAsync(Username);
+        }
+        
+        public Loinprojekt_admin.LoginService.InterfaceAdmin GetAdminById(int Id) {
+            return base.Channel.GetAdminById(Id);
+        }
+        
+        public System.Threading.Tasks.Task<Loinprojekt_admin.LoginService.InterfaceAdmin> GetAdminByIdAsync(int Id) {
+            return base.Channel.GetAdminByIdAsync(Id);
         }
     }
 }

@@ -407,23 +407,59 @@ namespace Loinprojekt_admin.UserService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/UpdateUser", ReplyAction="http://tempuri.org/IUserProfileService/UpdateUserResponse")]
         System.Threading.Tasks.Task<bool> UpdateUserAsync(Loinprojekt_admin.UserService.User user);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/DeleteUserProfile", ReplyAction="http://tempuri.org/IUserProfileService/DeleteUserProfileResponse")]
+        bool DeleteUserProfile(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/DeleteUserProfile", ReplyAction="http://tempuri.org/IUserProfileService/DeleteUserProfileResponse")]
+        System.Threading.Tasks.Task<bool> DeleteUserProfileAsync(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/DeleteUser", ReplyAction="http://tempuri.org/IUserProfileService/DeleteUserResponse")]
+        bool DeleteUser(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/DeleteUser", ReplyAction="http://tempuri.org/IUserProfileService/DeleteUserResponse")]
+        System.Threading.Tasks.Task<bool> DeleteUserAsync(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/UserIdExistsInProfile", ReplyAction="http://tempuri.org/IUserProfileService/UserIdExistsInProfileResponse")]
+        bool UserIdExistsInProfile(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/UserIdExistsInProfile", ReplyAction="http://tempuri.org/IUserProfileService/UserIdExistsInProfileResponse")]
+        System.Threading.Tasks.Task<bool> UserIdExistsInProfileAsync(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/EmailExistsInProfile", ReplyAction="http://tempuri.org/IUserProfileService/EmailExistsInProfileResponse")]
+        bool EmailExistsInProfile(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/EmailExistsInProfile", ReplyAction="http://tempuri.org/IUserProfileService/EmailExistsInProfileResponse")]
+        System.Threading.Tasks.Task<bool> EmailExistsInProfileAsync(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/UserNameExistsInProfile", ReplyAction="http://tempuri.org/IUserProfileService/UserNameExistsInProfileResponse")]
+        bool UserNameExistsInProfile(string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/UserNameExistsInProfile", ReplyAction="http://tempuri.org/IUserProfileService/UserNameExistsInProfileResponse")]
+        System.Threading.Tasks.Task<bool> UserNameExistsInProfileAsync(string userName);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/GetAllUsers", ReplyAction="http://tempuri.org/IUserProfileService/GetAllUsersResponse")]
         Loinprojekt_admin.UserService.User[] GetAllUsers();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/GetAllUsers", ReplyAction="http://tempuri.org/IUserProfileService/GetAllUsersResponse")]
         System.Threading.Tasks.Task<Loinprojekt_admin.UserService.User[]> GetAllUsersAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/GetUserByUserName", ReplyAction="http://tempuri.org/IUserProfileService/GetUserByUserNameResponse")]
-        Loinprojekt_admin.UserService.User GetUserByUserName(string username);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/GetUserByUserNameOrEmail", ReplyAction="http://tempuri.org/IUserProfileService/GetUserByUserNameOrEmailResponse")]
+        Loinprojekt_admin.UserService.User GetUserByUserNameOrEmail(string username);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/GetUserByUserName", ReplyAction="http://tempuri.org/IUserProfileService/GetUserByUserNameResponse")]
-        System.Threading.Tasks.Task<Loinprojekt_admin.UserService.User> GetUserByUserNameAsync(string username);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/GetUserByUserNameOrEmail", ReplyAction="http://tempuri.org/IUserProfileService/GetUserByUserNameOrEmailResponse")]
+        System.Threading.Tasks.Task<Loinprojekt_admin.UserService.User> GetUserByUserNameOrEmailAsync(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/GetUserByUserId", ReplyAction="http://tempuri.org/IUserProfileService/GetUserByUserIdResponse")]
         Loinprojekt_admin.UserService.User GetUserByUserId(int userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/GetUserByUserId", ReplyAction="http://tempuri.org/IUserProfileService/GetUserByUserIdResponse")]
         System.Threading.Tasks.Task<Loinprojekt_admin.UserService.User> GetUserByUserIdAsync(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/GetLatestLog", ReplyAction="http://tempuri.org/IUserProfileService/GetLatestLogResponse")]
+        string GetLatestLog();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/GetLatestLog", ReplyAction="http://tempuri.org/IUserProfileService/GetLatestLogResponse")]
+        System.Threading.Tasks.Task<string> GetLatestLogAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -469,6 +505,46 @@ namespace Loinprojekt_admin.UserService {
             return base.Channel.UpdateUserAsync(user);
         }
         
+        public bool DeleteUserProfile(int userId) {
+            return base.Channel.DeleteUserProfile(userId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteUserProfileAsync(int userId) {
+            return base.Channel.DeleteUserProfileAsync(userId);
+        }
+        
+        public bool DeleteUser(int userId) {
+            return base.Channel.DeleteUser(userId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteUserAsync(int userId) {
+            return base.Channel.DeleteUserAsync(userId);
+        }
+        
+        public bool UserIdExistsInProfile(int userId) {
+            return base.Channel.UserIdExistsInProfile(userId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UserIdExistsInProfileAsync(int userId) {
+            return base.Channel.UserIdExistsInProfileAsync(userId);
+        }
+        
+        public bool EmailExistsInProfile(string email) {
+            return base.Channel.EmailExistsInProfile(email);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EmailExistsInProfileAsync(string email) {
+            return base.Channel.EmailExistsInProfileAsync(email);
+        }
+        
+        public bool UserNameExistsInProfile(string userName) {
+            return base.Channel.UserNameExistsInProfile(userName);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UserNameExistsInProfileAsync(string userName) {
+            return base.Channel.UserNameExistsInProfileAsync(userName);
+        }
+        
         public Loinprojekt_admin.UserService.User[] GetAllUsers() {
             return base.Channel.GetAllUsers();
         }
@@ -477,12 +553,12 @@ namespace Loinprojekt_admin.UserService {
             return base.Channel.GetAllUsersAsync();
         }
         
-        public Loinprojekt_admin.UserService.User GetUserByUserName(string username) {
-            return base.Channel.GetUserByUserName(username);
+        public Loinprojekt_admin.UserService.User GetUserByUserNameOrEmail(string username) {
+            return base.Channel.GetUserByUserNameOrEmail(username);
         }
         
-        public System.Threading.Tasks.Task<Loinprojekt_admin.UserService.User> GetUserByUserNameAsync(string username) {
-            return base.Channel.GetUserByUserNameAsync(username);
+        public System.Threading.Tasks.Task<Loinprojekt_admin.UserService.User> GetUserByUserNameOrEmailAsync(string username) {
+            return base.Channel.GetUserByUserNameOrEmailAsync(username);
         }
         
         public Loinprojekt_admin.UserService.User GetUserByUserId(int userId) {
@@ -491,6 +567,14 @@ namespace Loinprojekt_admin.UserService {
         
         public System.Threading.Tasks.Task<Loinprojekt_admin.UserService.User> GetUserByUserIdAsync(int userId) {
             return base.Channel.GetUserByUserIdAsync(userId);
+        }
+        
+        public string GetLatestLog() {
+            return base.Channel.GetLatestLog();
+        }
+        
+        public System.Threading.Tasks.Task<string> GetLatestLogAsync() {
+            return base.Channel.GetLatestLogAsync();
         }
     }
 }

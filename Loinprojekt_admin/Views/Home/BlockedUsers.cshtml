@@ -28,7 +28,9 @@
                 <tr>
                     <td>@Html.DisplayFor(m => item.UserObject.Username)</td>
                     <td>@Html.DisplayFor(m => item.Reason)</td>
-                    <td>@Html.DisplayFor(m => item.SuspendedBy)</td>
+                    <td>
+                        @Html.ActionLink("Suspended by", "AdminProfile", new { id = item.SuspendedBy })
+                    </td>
                     <td>@Html.DisplayFor(m => item.DateFrom)</td>
                     <td>@Html.DisplayFor(m => item.DateTo)</td>
 

@@ -151,6 +151,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AdminModel.cs" />
+    <Compile Include="Models\Userobjekt.cs" />
+    <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
@@ -253,6 +255,8 @@
     <Content Include="Views\Home\Delete.cshtml" />
     <Content Include="Views\Home\ShowProfile.cshtml" />
     <Content Include="Views\Login\LoginPage.cshtml" />
+    <Content Include="Views\Home\BlockUser.cshtml" />
+    <Content Include="Views\Home\AdminProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

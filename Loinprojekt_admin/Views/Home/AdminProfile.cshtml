@@ -1,0 +1,33 @@
+﻿@model Loinprojekt_admin.LoginService.InterfaceAdmin
+
+@{
+    ViewBag.Title = "AdminProfile";
+}
+
+<h2>Profile</h2>
+
+<div>
+    <h4>@Html.DisplayFor(model => model.Username)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "BlockedUsers")
+</p>
