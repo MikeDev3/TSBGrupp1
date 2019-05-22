@@ -356,6 +356,114 @@ namespace Loinprojekt_admin.Controllers
                 return View("Error", new HandleErrorInfo(ex, "Home", "ActiveUsers"));
             }
         }
+
+        //funkar
+        // Metod för att radera en användare, tar den specifika användarens Id som inparamteter
+        public ActionResult BlockUser(int id)
+        {
+            Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
+            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+
+            try
+            {
+                // Anrop till webservicen
+                UserService.UserProfileServiceClient client = new UserService.UserProfileServiceClient();
+                if (client.GetUserByUserId(id) != null)
+                {
+                    Models.Userobjekt userobjekt = new Models.Userobjekt();
+                    userobjekt.ID = client.GetUserByUserId(id).Id;
+                    userobjekt.name = client.GetUserByUserId(id).Name;
+                    userobjekt.surname = client.GetUserByUserId(id).Surname;
+                    userobjekt.city = client.GetUserByUserId(id).City;
+                    userobjekt.adress = client.GetUserByUserId(id).Address;
+                    userobjekt.phonenumber = client.GetUserByUserId(id).Phonenumber;
+                    userobjekt.username = client.GetUserByUserId(id).Username;
+                    userobjekt.email = client.GetUserByUserId(id).Email;
+                    userobjekt.picture = client.GetUserByUserId(id).Picture;
+
+                    Models.ViewModel viewModel = new Models.ViewModel();
+                    viewModel.userID = userobjekt.ID;
+                    viewModel.userObjekt = userobjekt;
+
+                    // Anrop till webservicens metod för att hitta en specifik användare och visa upp en vy utifrån detta
+                    return View(viewModel);
+                }
+                else
+                {
+                    ModelState.AddModelError("Felmeddelande", "Cant find this user");
+                    return View();
+                }
+            }
+            catch (Exception ex)
+            {
+                return View("Error", new HandleErrorInfo(ex, "Home", "ActiveUsers"));
+            }
+
+        }
+
+        //funkar
+        [HttpPost, ActionName("BlockUser")]
+        [ValidateAntiForgeryToken]
+        /*
+         Metod för att bekräfta radering av en användare, här utförs således den faktiska raderingen.
+         Metoden tar den specifika användarens Id som inparamter.
+         */
+        public ActionResult ConfirmBlock(Models.ViewModel viewModel)
+        {
+            Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
+
+            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+
+            try
+            {
+                LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
+
+                // Anrop till webservicen
+                // Anrop till webservicens metod för att radera en användare, där vi skickar me med den specifika användarens Id
+               client.BlockUser(viewModel.userID, sessionObjekt.ID, viewModel.reason, viewModel.dateTo );
+                // När raderingen slutförs, återvänd till sidan som visar alla aktiva användare
+                ModelState.AddModelError("Felmeddelande", "Konto raderat!");
+                return RedirectToAction("ActiveUsers");
+
+            }
+            catch (Exception ex)
+            {
+                return View("Error", new HandleErrorInfo(ex, "Home", "ActiveUsers"));
+            }
+        }
+
+        public ActionResult AdminProfile(int id)
+        {
+            Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
+
+            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+            try
+            {
+                // Anrop till webservicen
+                LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
+
+                if (client.GetAdminById(id) != null)
+                {
+                    // Vy som använder sig av en metod från webservicen för att hitta en specifik användare
+                    return View(client.GetAdminById(id));
+
+                }
+                else
+                {
+                    ModelState.AddModelError("Felmeddelande", "No profile to show here");
+                    return View();
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return View("Error", new HandleErrorInfo(ex, "Home", "ActiveUsers"));
+            }
+
+            return View();
+        }
+
         public ActionResult LogOut()
         {
             return View();
