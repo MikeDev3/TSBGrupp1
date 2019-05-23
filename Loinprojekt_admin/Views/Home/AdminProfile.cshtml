@@ -1,7 +1,7 @@
 ﻿@model Loinprojekt_admin.LoginService.InterfaceAdmin
 
 @{
-    ViewBag.Title = "AdminProfile";
+    ViewBag.Title = "Profile for Admin";
 }
 
 <h2>Profile</h2>
@@ -11,7 +11,13 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Email)
+            Picture
+        </dt>
+        <dd>
+            <!--Här bör det ligga en picture URL som vi får lägga till i adminobjektet-->
+        </dd>
+        <dt>
+            Email adress
         </dt>
 
         <dd>
@@ -19,7 +25,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Username)
+            Username
         </dt>
 
         <dd>

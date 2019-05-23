@@ -17,11 +17,11 @@
 
         <table class="table">
             <tr>
-                <th>Username</th>
-                <th>Reason</th>
-                <th>Flagged by</th>
-                <th>Block user</th>
-                <th>Unflag by</th>
+                <th class="th">Username</th>
+                <th class="th">Reason</th>
+                <th class="th">Flagged by</th>
+                <th class="th">Block user</th>
+                <th class="th">Unflag by</th>
             </tr>
             @foreach (var item in Model)
             {
@@ -52,5 +52,5 @@
 }
 else
 {
-    <h2 style="color: red">It seems like there are no moderators yet</h2>
+    <h2 style="color: red">It seems like there are no flagged errands yet</h2>
 }

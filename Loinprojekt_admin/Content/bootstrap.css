@@ -254,6 +254,7 @@ th {
   .table td,
   .table th {
     background-color: #fff !important;
+
   }
   .table-bordered th,
   .table-bordered td {
@@ -2261,9 +2262,18 @@ th {
   text-align: left;
 }
 .table {
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 20px;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    background-color: floralwhite;
+    border-left: 1px solid black;
+    border-top: 2px solid black;
+    border-bottom: 1px solid black;
+    box-shadow: 5px 10px 18px #888888;
+}
+.th {
+    font-size: 20px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,
