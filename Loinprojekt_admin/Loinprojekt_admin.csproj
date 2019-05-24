@@ -196,6 +196,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="CSS\698956-icon-111-search-512.png" />
     <Content Include="CSS\Style.css" />
+    <Content Include="CSS\user-clipart-matt-icons_preferences-desktop-personal.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
