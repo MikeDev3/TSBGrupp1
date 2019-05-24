@@ -1,9 +1,18 @@
-﻿
+﻿@model Loinprojekt_admin.Models.StatisticModel
 @{
+    /**/
+
     ViewBag.Title = "Start";
 }
 
 <h1>Välkommen!</h1>
 
-<h3>Här skulle det behöva skrivas lite mer tror jag</h3>
+<p>Active users</p>
+@Html.DisplayFor(m => m.ActiveRow)
+
+<p>Flagged users</p>
+@Html.DisplayFor(m => m.FlaggedRow)
+
+<p>Blocked users</p>
+@Html.DisplayFor(m => m.BlockedRow)
 

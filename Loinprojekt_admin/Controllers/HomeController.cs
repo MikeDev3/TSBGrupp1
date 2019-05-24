@@ -15,7 +15,20 @@ namespace Loinprojekt_admin.Controllers
 
             ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
 
-            return View();
+            LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
+
+            int ActiveRow = client.CountActiveUsers();
+            int FlaggedRow = client.CountFlaggedUsers();
+            int BlockedRow = client.CountBlockedUsers();
+
+            Models.StatisticModel statisticModel = new Models.StatisticModel();
+
+            statisticModel.ActiveRow = ActiveRow;
+            statisticModel.BlockedRow = BlockedRow;
+            statisticModel.FlaggedRow = FlaggedRow;
+
+
+            return View(statisticModel);
         }
         //funkar
         // Metod för att visa en profil, tar en användares Id som inparameter för att kunna visa denna specifika profil
