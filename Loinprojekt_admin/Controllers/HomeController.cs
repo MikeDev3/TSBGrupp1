@@ -9,11 +9,19 @@ namespace Loinprojekt_admin.Controllers
      [Authorize]
     public class HomeController : Controller
     {
+
         public ActionResult Index()
         {
             Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("LoginPage", "Login");
+            }
+            else
+            {
+                ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
 
-            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+            }
 
             LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
 
@@ -35,8 +43,15 @@ namespace Loinprojekt_admin.Controllers
         public ActionResult ShowProfile(int id)
         {
             Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("LoginPage", "Login");
+            }
+            else
+            {
+                ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
 
-            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+            }
             try
             {
                 // Anrop till webservicen
@@ -66,8 +81,15 @@ namespace Loinprojekt_admin.Controllers
         public ActionResult ActiveUsers()
         {
             Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("LoginPage", "Login");
+            }
+            else
+            {
+                ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
 
-            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+            }
             try
             {
                 // Anrop till webservicen
@@ -96,7 +118,15 @@ namespace Loinprojekt_admin.Controllers
         {
             Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
 
-            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("LoginPage", "Login");
+            }
+            else
+            {
+                ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+
+            }
             try
             {
                 // Anrop till webservicen
@@ -126,7 +156,15 @@ namespace Loinprojekt_admin.Controllers
         {
             Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
 
-            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("LoginPage", "Login");
+            }
+            else
+            {
+                ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+
+            }
             try
             {
                 // Anrop till webservicen
@@ -155,7 +193,15 @@ namespace Loinprojekt_admin.Controllers
         {
             Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
 
-            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("LoginPage", "Login");
+            }
+            else
+            {
+                ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+
+            }
             try
             {
                 // Anrop till webservicen
@@ -184,7 +230,15 @@ namespace Loinprojekt_admin.Controllers
         {
             Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
 
-            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("LoginPage", "Login");
+            }
+            else
+            {
+                ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+
+            }
             try
             {
                 // Anrop till webservicen
@@ -217,7 +271,15 @@ namespace Loinprojekt_admin.Controllers
         {
             Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
 
-            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("LoginPage", "Login");
+            }
+            else
+            {
+                ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+
+            }
             try
             {
                 UserService.UserProfileServiceClient client = new UserService.UserProfileServiceClient();
@@ -244,8 +306,15 @@ namespace Loinprojekt_admin.Controllers
         {
             Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
 
-            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("LoginPage", "Login");
+            }
+            else
+            {
+                ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
 
+            }
             try
             {
                 // Anrop till webservicen
@@ -274,7 +343,15 @@ namespace Loinprojekt_admin.Controllers
         {
             Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
 
-            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("LoginPage", "Login");
+            }
+            else
+            {
+                ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+
+            }
             try
             {
                 // Anrop till webservicen
@@ -303,7 +380,15 @@ namespace Loinprojekt_admin.Controllers
         {
             Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
 
-            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("LoginPage", "Login");
+            }
+            else
+            {
+                ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+
+            }
             try
             {
                 // Anrop till webservicen
@@ -343,7 +428,15 @@ namespace Loinprojekt_admin.Controllers
         {
               Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
 
-            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("LoginPage", "Login");
+            }
+            else
+            {
+                ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+
+            }
             try
             {
                 // Anrop till webservicen
@@ -371,8 +464,15 @@ namespace Loinprojekt_admin.Controllers
         public ActionResult BlockUser(int id)
         {
             Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
-            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("LoginPage", "Login");
+            }
+            else
+            {
+                ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
 
+            }
             try
             {
                 // Anrop till webservicen
@@ -421,8 +521,15 @@ namespace Loinprojekt_admin.Controllers
         {
             Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
 
-            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("LoginPage", "Login");
+            }
+            else
+            {
+                ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
 
+            }
             try
             {
                 LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
@@ -445,7 +552,15 @@ namespace Loinprojekt_admin.Controllers
         {
             Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
 
-            ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("LoginPage", "Login");
+            }
+            else
+            {
+                ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+
+            }
             try
             {
                 // Anrop till webservicen
@@ -470,7 +585,6 @@ namespace Loinprojekt_admin.Controllers
                 return View("Error", new HandleErrorInfo(ex, "Home", "ActiveUsers"));
             }
 
-            return View();
         }
 
         public ActionResult LogOut()

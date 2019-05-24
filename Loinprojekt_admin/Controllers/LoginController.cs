@@ -47,7 +47,6 @@ namespace Loinprojekt_admin.Controllers
                 // När inloggningen är klar hamnar användaren på förstasidan, nu som inloggad admin
                 return RedirectToAction("Index", "Home");
 
-
             }
             else
             {
