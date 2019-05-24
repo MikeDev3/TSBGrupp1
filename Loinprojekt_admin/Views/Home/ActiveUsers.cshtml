@@ -11,7 +11,7 @@
 @if (Model.Count() > 0)
 {
 
-    <h2>List of user accounts</h2>
+    <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">List of user accounts</h2>
     <div class="table-wrapper-scroll-y my-custom-scrollbar">
         <table id="myTable" style="overflow-y: auto" class="table">
             <tr>
@@ -44,8 +44,8 @@
 
 
 
-                <td>@Html.ActionLink("Delete account", "Delete", new { id = item.ID })</td>
-                <td>@Html.ActionLink("Block User", "BlockUser", new { id = item.ID })</td>
+                <td>@Html.ActionLink("Delete ", "Delete", new { id = item.ID })</td>
+                <td>@Html.ActionLink("Block ", "BlockUser", new { id = item.ID })</td>
 
             </tr>
             }

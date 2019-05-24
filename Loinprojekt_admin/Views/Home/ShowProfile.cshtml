@@ -4,107 +4,167 @@
     ViewBag.Title = "ShowProfile";
 }
 
-<h2>Profile</h2>
+<h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Profile</h2>
 <h2 style="color: red; ">@Html.ValidationMessage("Felmeddelande")</h2>
 
 <div>
-    <h4>User</h4>
     <hr />
     <dl class="dl-horizontal">
 
         @if (Model != null)
         {
-
-
-
             if (Model.Picture != null)
             {
                 <dt>
                     @Html.DisplayNameFor(model => model.Picture)
                 </dt>
-
             }
             else
             {
-                <dt>Picture is missing</dt>
+                <dt style="color:red">Picture is empty</dt>
+                <dd>             </dd>
             }
-
             <dd>
                 <img style="height:200px; width:200px;" src="@Model.Picture" />
             </dd>
 
+            if (Model.Address != null)
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.Address)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Address)
+                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Address)
-            </dt>
+            }
+            else
+            {
+                <dt style="color:red">Adress is empty</dt>
+                <dd>                </dd>
+            }
 
-            <dd>
-                @Html.DisplayFor(model => model.Address)
-            </dd>
+            if (Model.City != null)
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.City)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.City)
+                </dd>
+            }
+            else
+            {
+                <dt style="color:red">City is empty</dt>
+                <dd>              </dd>
+            }
 
-            <dt>
-                @Html.DisplayNameFor(model => model.City)
-            </dt>
+            if (Model.Email != null)
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+            }
+            else
+            {
+                <dt style="color:red">Email is empty</dt>
+                <dd>              </dd>
+            }
 
-            <dd>
-                @Html.DisplayFor(model => model.City)
-            </dd>
+            if (Model.Name != null)
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Email)
-            </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+            }
+            else
+            {
+                <dt style="color:red">Name is empty</dt>
+                <dd>              </dd>
+            }
 
-            <dd>
-                @Html.DisplayFor(model => model.Email)
-            </dd>
+            if (Model.PersonalCodeNumber != null)
+            {
+                <dt>
+                    Personal Code Number
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PersonalCodeNumber)
+                </dd>
+            }
+            else
+            {
+                <dt style="color:red">Personal Code number</dt>
+                <dd>              </dd>
+            }
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Name)
-            </dt>
+            if (Model.Phonenumber != null)
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.Phonenumber)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Phonenumber)
+                </dd>
+            }
+            else
+            {
+                <dt style="color:red">Phonenumber is empty</dt>
+                <dd>              </dd>
+            }
 
-            <dd>
-                @Html.DisplayFor(model => model.Name)
-            </dd>
+            if (Model.Surname != null)
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.Surname)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Surname)
+                </dd>
+            }
+            else
+            {
+                <dt style="color:red">Surname is empty</dt>
+                <dd>              </dd>
+            }
 
-            <dt>
-                Personal Code Number
-            </dt>
+            if (Model.Username != null)
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.Username)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Username)
+                </dd>
+            }
+            else
+            {
+                <dt style="color:red">Username is empty</dt>
+                <dd>              </dd>
+            }
 
-            <dd>
-                @Html.DisplayFor(model => model.PersonalCodeNumber)
-            </dd>
+            if (Model.ZipCode != null)
+            {
+                <dt>
+                    Zipcode
+                </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Phonenumber)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Phonenumber)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Surname)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Surname)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Username)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Username)
-            </dd>
-
-            <dt>
-                Zipcode
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.ZipCode)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.ZipCode)
+                </dd>
+            }
+            else
+            {
+                <dt style="color:red">Zipcode is empty</dt>
+                <dd>              </dd>
+            }
         }
         else
         {
