@@ -20,28 +20,23 @@
                 <th class="th">Blocked by</th>
                 <th class="th">Blocked from</th>
                 <th class="th">Blocked to</th>
-                <th class="th"></th>
-                <th class="th"></th>
+                <th class="th">Delete account</th>
             </tr>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>@Html.DisplayFor(m => item.UserObject.Username)</td>
-                    <td>@Html.DisplayFor(m => item.Reason)</td>
-                    <td>
-                        @Html.ActionLink("Suspended by", "AdminProfile", new { id = item.SuspendedBy })
-                    </td>
-                    <td>@Html.DisplayFor(m => item.DateFrom)</td>
-                    <td>@Html.DisplayFor(m => item.DateTo)</td>
+            <tr>
+                <td style="font-weight: bold; font-style:italic">@Html.ActionLink((string)item.UserObject.Username, "ShowProfile", new { id = item.ID })</td>
+                <td>@Html.DisplayFor(m => item.Reason)</td>
 
-                    <td>
-                        @Html.ActionLink("Go to profile", "ShowProfile", new { id = item.ID })
-                        <!-- Kolla med profilgruppen-->
-                    </td>
-                    <td>
-                        @Html.ActionLink("Delete account", "Delete", new { id = item.ID })
-                    </td>
-                </tr>
+                <td style="font-weight: bold; font-style:italic">@Html.ActionLink((string)item.Banner.Username, "AdminProfile", new { id = item.SuspendedBy })</td>
+                <td>@(item.DateFrom.ToString("yyyy/MM/dd"))</td>
+                <td>@(item.DateTo.ToString("yyyy/MM/dd"))</td>
+
+
+                <td>
+                    @Html.ActionLink("Delete account", "Delete", new { id = item.ID })
+                </td>
+            </tr>
             }
 
         </table>
