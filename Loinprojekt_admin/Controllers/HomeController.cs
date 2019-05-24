@@ -14,6 +14,7 @@ namespace Loinprojekt_admin.Controllers
             Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
 
             ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
+
             return View();
         }
         //funkar
@@ -237,17 +238,12 @@ namespace Loinprojekt_admin.Controllers
                 // Anrop till webservicen
                 LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
                 if (client.AssignModeratorRole(id) == true)
-                {
                     // Anrop till webservicens metod för att tilldela moderatorsbehörigheter, där vi skickar med den specifika användarens Id
                     client.AssignModeratorRole(id);
                     // När behörigheten är tilldelad, återvänd till sidan som visar alla aktiva användare
                     return RedirectToAction("ActiveUsers");
-                }
-                else
-                {
-                    ModelState.AddModelError("Felmeddelande", "The user is already a moderator");
-                    return View();
-                }
+               
+
             }
             catch (Exception ex)
             {

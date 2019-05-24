@@ -13,6 +13,24 @@
   <wsdl:message name="ILoginService_IsAlive_OutputMessage">
     <wsdl:part name="parameters" element="tns:IsAliveResponse" />
   </wsdl:message>
+  <wsdl:message name="ILoginService_CountActiveUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountActiveUsers" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_CountActiveUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountActiveUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_CountFlaggedUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountFlaggedUsers" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_CountFlaggedUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountFlaggedUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_CountBlockedUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountBlockedUsers" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_CountBlockedUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountBlockedUsersResponse" />
+  </wsdl:message>
   <wsdl:message name="ILoginService_CreateUser_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateUser" />
   </wsdl:message>
@@ -66,6 +84,12 @@
   </wsdl:message>
   <wsdl:message name="ILoginService_GetUserId_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_UpdateAccountInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAccountInfo" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_UpdateAccountInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAccountInfoResponse" />
   </wsdl:message>
   <wsdl:message name="ILoginService_GetFlaggedUsers_InputMessage">
     <wsdl:part name="parameters" element="tns:GetFlaggedUsers" />
@@ -156,6 +180,18 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/IsAlive" message="tns:ILoginService_IsAlive_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/IsAliveResponse" message="tns:ILoginService_IsAlive_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="CountActiveUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/CountActiveUsers" message="tns:ILoginService_CountActiveUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/CountActiveUsersResponse" message="tns:ILoginService_CountActiveUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CountFlaggedUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/CountFlaggedUsers" message="tns:ILoginService_CountFlaggedUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/CountFlaggedUsersResponse" message="tns:ILoginService_CountFlaggedUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CountBlockedUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/CountBlockedUsers" message="tns:ILoginService_CountBlockedUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/CountBlockedUsersResponse" message="tns:ILoginService_CountBlockedUsers_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="CreateUser">
       <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/CreateUser" message="tns:ILoginService_CreateUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/CreateUserResponse" message="tns:ILoginService_CreateUser_OutputMessage" />
@@ -191,6 +227,10 @@
     <wsdl:operation name="GetUserId">
       <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/GetUserId" message="tns:ILoginService_GetUserId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/GetUserIdResponse" message="tns:ILoginService_GetUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/UpdateAccountInfo" message="tns:ILoginService_UpdateAccountInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/UpdateAccountInfoResponse" message="tns:ILoginService_UpdateAccountInfo_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetFlaggedUsers">
       <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/GetFlaggedUsers" message="tns:ILoginService_GetFlaggedUsers_InputMessage" />
@@ -253,6 +293,33 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="IsAlive">
       <soap:operation soapAction="http://tempuri.org/ILoginService/IsAlive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountActiveUsers">
+      <soap:operation soapAction="http://tempuri.org/ILoginService/CountActiveUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountFlaggedUsers">
+      <soap:operation soapAction="http://tempuri.org/ILoginService/CountFlaggedUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountBlockedUsers">
+      <soap:operation soapAction="http://tempuri.org/ILoginService/CountBlockedUsers" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -334,6 +401,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetUserId">
       <soap:operation soapAction="http://tempuri.org/ILoginService/GetUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountInfo">
+      <soap:operation soapAction="http://tempuri.org/ILoginService/UpdateAccountInfo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

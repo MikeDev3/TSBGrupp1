@@ -17,8 +17,6 @@
     <div class="header">
         <img alt="Finder" src="//i.imgur.com/YHlSO2T.png" style="max-width: 100% ;
          min-height: 53px ; cursor:pointer" onclick="window.location = '/';" />
-        <input type="text" placeholder="  Search..">
-        <input type="submit" value="Search" />
         <div style="float:right">
 
             @if (HttpContext.Current.Session["admin"] != null)
@@ -62,7 +60,7 @@
     <div class="footer">
         <br />
         <img class="logo1" src="//i.imgur.com/YHlSO2T.png" height="90">
-        <p style="color: white">&copy; @DateTime.Now.Year - Min ASP.Net webbsida</p>
+        <p style="color: white">&copy; @DateTime.Now.Year - Finder Admin</p>
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

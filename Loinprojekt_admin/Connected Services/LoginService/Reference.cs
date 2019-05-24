@@ -927,6 +927,24 @@ namespace Loinprojekt_admin.LoginService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/IsAlive", ReplyAction="http://tempuri.org/ILoginService/IsAliveResponse")]
         System.Threading.Tasks.Task<bool> IsAliveAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/CountActiveUsers", ReplyAction="http://tempuri.org/ILoginService/CountActiveUsersResponse")]
+        int CountActiveUsers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/CountActiveUsers", ReplyAction="http://tempuri.org/ILoginService/CountActiveUsersResponse")]
+        System.Threading.Tasks.Task<int> CountActiveUsersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/CountFlaggedUsers", ReplyAction="http://tempuri.org/ILoginService/CountFlaggedUsersResponse")]
+        int CountFlaggedUsers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/CountFlaggedUsers", ReplyAction="http://tempuri.org/ILoginService/CountFlaggedUsersResponse")]
+        System.Threading.Tasks.Task<int> CountFlaggedUsersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/CountBlockedUsers", ReplyAction="http://tempuri.org/ILoginService/CountBlockedUsersResponse")]
+        int CountBlockedUsers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/CountBlockedUsers", ReplyAction="http://tempuri.org/ILoginService/CountBlockedUsersResponse")]
+        System.Threading.Tasks.Task<int> CountBlockedUsersAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/CreateUser", ReplyAction="http://tempuri.org/ILoginService/CreateUserResponse")]
         Loinprojekt_admin.LoginService.ReturnUser CreateUser(Loinprojekt_admin.LoginService.NewUser NewUser);
         
@@ -980,6 +998,12 @@ namespace Loinprojekt_admin.LoginService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/GetUserId", ReplyAction="http://tempuri.org/ILoginService/GetUserIdResponse")]
         System.Threading.Tasks.Task<int> GetUserIdAsync(string Email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/UpdateAccountInfo", ReplyAction="http://tempuri.org/ILoginService/UpdateAccountInfoResponse")]
+        bool UpdateAccountInfo(Loinprojekt_admin.LoginService.ReturnUser UpdatedAccountInfo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/UpdateAccountInfo", ReplyAction="http://tempuri.org/ILoginService/UpdateAccountInfoResponse")]
+        System.Threading.Tasks.Task<bool> UpdateAccountInfoAsync(Loinprojekt_admin.LoginService.ReturnUser UpdatedAccountInfo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/GetFlaggedUsers", ReplyAction="http://tempuri.org/ILoginService/GetFlaggedUsersResponse")]
         Loinprojekt_admin.LoginService.InterfaceFlaggedUser[] GetFlaggedUsers();
@@ -1101,6 +1125,30 @@ namespace Loinprojekt_admin.LoginService {
             return base.Channel.IsAliveAsync();
         }
         
+        public int CountActiveUsers() {
+            return base.Channel.CountActiveUsers();
+        }
+        
+        public System.Threading.Tasks.Task<int> CountActiveUsersAsync() {
+            return base.Channel.CountActiveUsersAsync();
+        }
+        
+        public int CountFlaggedUsers() {
+            return base.Channel.CountFlaggedUsers();
+        }
+        
+        public System.Threading.Tasks.Task<int> CountFlaggedUsersAsync() {
+            return base.Channel.CountFlaggedUsersAsync();
+        }
+        
+        public int CountBlockedUsers() {
+            return base.Channel.CountBlockedUsers();
+        }
+        
+        public System.Threading.Tasks.Task<int> CountBlockedUsersAsync() {
+            return base.Channel.CountBlockedUsersAsync();
+        }
+        
         public Loinprojekt_admin.LoginService.ReturnUser CreateUser(Loinprojekt_admin.LoginService.NewUser NewUser) {
             return base.Channel.CreateUser(NewUser);
         }
@@ -1171,6 +1219,14 @@ namespace Loinprojekt_admin.LoginService {
         
         public System.Threading.Tasks.Task<int> GetUserIdAsync(string Email) {
             return base.Channel.GetUserIdAsync(Email);
+        }
+        
+        public bool UpdateAccountInfo(Loinprojekt_admin.LoginService.ReturnUser UpdatedAccountInfo) {
+            return base.Channel.UpdateAccountInfo(UpdatedAccountInfo);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateAccountInfoAsync(Loinprojekt_admin.LoginService.ReturnUser UpdatedAccountInfo) {
+            return base.Channel.UpdateAccountInfoAsync(UpdatedAccountInfo);
         }
         
         public Loinprojekt_admin.LoginService.InterfaceFlaggedUser[] GetFlaggedUsers() {
