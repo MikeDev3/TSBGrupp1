@@ -20,31 +20,28 @@
                 <th class="th">Username</th>
                 <th class="th">Reason</th>
                 <th class="th">Flagged by</th>
-                <th class="th">Block user</th>
-                <th class="th">Unflag by</th>
+                <th class="th">Block</th>
+                <th class="th">Unflag</th>
+                <th class="th">Delete</th>
+
             </tr>
             @foreach (var item in Model)
             {
-                <tr>
-
-                    <td>@Html.DisplayFor(m => item.WhoIsFlagged.Username)</td>
-                    <td>@Html.DisplayFor(m => item.Reason)</td>
-                    <td>@Html.DisplayFor(m => item.FlaggedBy.Username)</td>
-                    <td>
-
-                        @Html.ActionLink("Go to profile", "ShowProfile", new { id = item.ID })
-                        <!-- Kolla med profilgruppen-->
-                    </td>
-                    <td>
-                        @Html.ActionLink("Block user", "BlockUser", "Home", new { id = item.ID })
-                    </td>
-                    <td>
-                        @Html.ActionLink("Unflag", "Unflag", new { id = item.ID })
-                    </td>
-                    <td>
-                        @Html.ActionLink("Delete account", "DeleteAccount", new { id = item.ID })
-                    </td>
-                </tr>
+            <tr>
+                <td style="font-weight: bold; font-style:italic">@Html.ActionLink((string)item.WhoIsFlagged.Username, "ShowProfile", new { id = item.ID })</td>
+                <td>@Html.DisplayFor(m => item.Reason)</td>
+                <td style="font-weight: bold; font-style:italic">@Html.ActionLink((string)item.FlaggedBy.Username, "ShowProfile", new { id = item.FlaggedByUserId })</td>
+               
+                <td>
+                    @Html.ActionLink("Block user", "BlockUser", "Home", new { id = item.ID })
+                </td>
+                <td>
+                    @Html.ActionLink("Unflag", "Unflag", new { id = item.ID })
+                </td>
+                <td>
+                    @Html.ActionLink("Delete account", "DeleteAccount", new { id = item.ID })
+                </td>
+            </tr>
             }
 
         </table>

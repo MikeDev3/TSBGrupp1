@@ -14,21 +14,21 @@
 
             <tr>
 
-                <th>Username</th>
-                <th>Email</th>
+                <th class="th">Username</th>
+                <th class="th">Email</th>
 
             </tr>
 
             @foreach (var item in Model)
             {
             <tr>
-                <td>@Html.DisplayFor(m => item.Username)</td>
+                <td style="font-weight: bold; font-style:italic">@Html.ActionLink((string)item.Username, "AdminProfile", new { id = item.ID })</td>
                 <td>@Html.DisplayFor(m => item.Email)</td>
                 <!--
-                     Man kanske vill visa email som en länk?
-                     <td><a href= "a Href(mailto:item.Email)"></a></td>
+         Man kanske vill visa email som en länk?
+         <td><a href= "a Href(mailto:item.Email)"></a></td>
 
-                 -->
+     -->
 
 
             </tr>

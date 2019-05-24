@@ -12,86 +12,104 @@
     <hr />
     <dl class="dl-horizontal">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Picture)
-        </dt>
-
-        <dd>
-            <img style="height:200px; width:200px;" src="@Model.Picture" />
-        </dd>
+        @if (Model != null)
+        {
 
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
+            if (Model.Picture != null)
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.Picture)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
+            }
+            else
+            {
+                <dt>Picture is missing</dt>
+            }
 
-        <dd>
-            @Html.DisplayFor(model => model.City)
-        </dd>
+            <dd>
+                <img style="height:200px; width:200px;" src="@Model.Picture" />
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.City)
+            </dt>
 
-        <dt>
-            Personal Code Number
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.City)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PersonalCodeNumber)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Phonenumber)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Phonenumber)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Surname)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Surname)
-        </dd>
+            <dt>
+                Personal Code Number
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Username)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PersonalCodeNumber)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Username)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Phonenumber)
+            </dt>
 
-        <dt>
-            Zipcode
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Phonenumber)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ZipCode)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Surname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Surname)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Username)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Username)
+            </dd>
+
+            <dt>
+                Zipcode
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ZipCode)
+            </dd>
+        }
+        else
+        {
+
+        }
 
     </dl>
 </div>

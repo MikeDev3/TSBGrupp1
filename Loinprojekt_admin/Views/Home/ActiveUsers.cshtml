@@ -19,28 +19,35 @@
                 <th class="th">Username</th>
                 <th class="th">Status</th>
                 <th class="th">Role</th>
-                <th class="th">Profile</th>
-                <th class="th">Add permissions</th>
+                <th class="th">Permissions</th>
                 <th class="th">Delete account</th>
-                <th class="th"></th>
-
+                <th class="th">Block</th>
 
             </tr>
 
             @foreach (var item in Model)
             {
-                <tr>
-                    <td style="font-weight: bold; font-style:italic">@Html.DisplayFor(m => item.Username)</td>
-                    <td>@Html.DisplayFor(m => item.Status.StatusName)</td>
-                    <td>@Html.DisplayFor(m => item.Roles.Role)</td>
-
-
-                    <td>@Html.ActionLink("Go to profile", "ShowProfile", new { id = item.ID })</td>
+            <tr>
+                <td style="font-weight: bold; font-style:italic">@Html.ActionLink((string)item.Username, "ShowProfile", new { id = item.ID })</td>
+                <td>@Html.DisplayFor(m => item.Status.StatusName)</td>
+                <td>@Html.DisplayFor(m => item.Roles.Role)</td>
+                @if (item.RoleID == 3)
+                {
                     <td>@Html.ActionLink("Add permissions", "AddPermission", new { id = item.ID })</td>
-                    <td>@Html.ActionLink("Delete account", "Delete", new { id = item.ID })</td>
-                    <td>@Html.ActionLink("Block User", "BlockUser", new { id = item.ID })</td>
 
-                </tr>
+                }
+                else
+                {
+                    <td>@Html.ActionLink("Remove permissions", "DeletePermission", new { id = item.ID })</td>
+
+                }
+
+
+
+                <td>@Html.ActionLink("Delete account", "Delete", new { id = item.ID })</td>
+                <td>@Html.ActionLink("Block User", "BlockUser", new { id = item.ID })</td>
+
+            </tr>
             }
 
 
