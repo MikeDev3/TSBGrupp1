@@ -13,6 +13,8 @@ namespace Loinprojekt_admin.Controllers
         public ActionResult Index()
         {
             Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
+            // Om admin ej är inloggad, gå till inloggningssidan
+
             if (Session["admin"] == null)
             {
                 return RedirectToAction("LoginPage", "Login");
@@ -131,6 +133,7 @@ namespace Loinprojekt_admin.Controllers
             {
                 // Anrop till webservicen
                 LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
+                // Om moderatorer finns
                 if (client.GetModerators() != null)
                 {
 
@@ -138,6 +141,7 @@ namespace Loinprojekt_admin.Controllers
                     return View(client.GetModerators());
 
                 }
+                // Om moderatorer inte finns, skriv ut ett felmeddelande
                 else
                 {
                     ModelState.AddModelError("Felmeddelande", "It seems like there are no assigned moderators yet");
@@ -168,6 +172,7 @@ namespace Loinprojekt_admin.Controllers
             try
             {
                 // Anrop till webservicen
+                // Om flaggade ärenden kan hittas
                 LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
                 if (client.GetFlaggedUsers() != null)
                 {
@@ -175,6 +180,7 @@ namespace Loinprojekt_admin.Controllers
                     return View(client.GetFlaggedUsers());
 
                 }
+                // Om flaggade ärenden inte kan hittas, skriv ut ett felmeddelande
                 else
                 {
                     ModelState.AddModelError("Felmeddelande", "No flagged users here, good for us!");
