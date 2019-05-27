@@ -73,6 +73,12 @@
   <wsdl:message name="IUserProfileService_GetLatestLog_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetLatestLogResponse" />
   </wsdl:message>
+  <wsdl:message name="IUserProfileService_IsAlive_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsAlive" />
+  </wsdl:message>
+  <wsdl:message name="IUserProfileService_IsAlive_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsAliveResponse" />
+  </wsdl:message>
   <wsdl:portType name="IUserProfileService">
     <wsdl:operation name="CreateUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserProfileService/CreateUser" message="tns:IUserProfileService_CreateUser_InputMessage" />
@@ -117,6 +123,10 @@
     <wsdl:operation name="GetLatestLog">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserProfileService/GetLatestLog" message="tns:IUserProfileService_GetLatestLog_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserProfileService/GetLatestLogResponse" message="tns:IUserProfileService_GetLatestLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsAlive">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserProfileService/IsAlive" message="tns:IUserProfileService_IsAlive_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserProfileService/IsAliveResponse" message="tns:IUserProfileService_IsAlive_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IUserProfileService" type="tns:IUserProfileService">
@@ -213,6 +223,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetLatestLog">
       <soap:operation soapAction="http://tempuri.org/IUserProfileService/GetLatestLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsAlive">
+      <soap:operation soapAction="http://tempuri.org/IUserProfileService/IsAlive" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
