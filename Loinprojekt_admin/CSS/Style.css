@@ -1,5 +1,4 @@
-﻿body {
-}
+﻿
 
 .login-page {
     width: 360px;
@@ -23,7 +22,6 @@
 }
 
 .bakgrundsbildlogin {
-    // background-image: url(https://images.unsplash.com/photo-1437422061949-f6efbde0a471?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80);
     background-image: url(https://scontent-arn2-1.xx.fbcdn.net/v/t1.15752-9/54236757_1329312470558574_7049580571705475072_n.png?_nc_cat=100&_nc_ht=scontent-arn2-1.xx&oh=af84e9d84b646db85d4df1ffbf21ee5e&oe=5D1A6321);
     width: 100%;
     height: 1200px;
