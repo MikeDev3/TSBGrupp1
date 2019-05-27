@@ -1,7 +1,7 @@
 ﻿@model Loinprojekt_admin.Models.ViewModel
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Blockera användare";
 }
 
 <h2>Block User</h2>
@@ -9,29 +9,39 @@
 <h2 style="color: red; ">@Html.ValidationMessage("Felmeddelande")</h2>
 
 <div>
-    <h4>User</h4>
+    <h4>Användare</h4>
     <hr />
     <dl class="dl-horizontal">
-       
-
         <dt>
-            @Html.DisplayNameFor(model => model.userObjekt.adress)
+            Bild
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.userObjekt.adress)
+            @Html.DisplayFor(model => model.userObjekt.picture)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.userObjekt.city)
+            Användarnamn
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.userObjekt.city)
+            @Html.DisplayFor(model => model.userObjekt.username)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.userObjekt.email)
+            Förnamn
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userObjekt.name)
+        </dd>
+        <dt>
+            Efternamn
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userObjekt.surname)
+        </dd>
+        <dt>
+            E-post
         </dt>
 
         <dd>
@@ -39,52 +49,42 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.userObjekt.name)
+            Adress
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.userObjekt.name)
+            @Html.DisplayFor(model => model.userObjekt.adress)
+        </dd>
+        <dt>
+            Postnummer
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userObjekt.zipcode)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.userObjekt.phonenumber)
+            Stad
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userObjekt.city)
+        </dd>
+
+
+
+        <dt>
+            Telefonnummer
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.userObjekt.phonenumber)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.userObjekt.picture)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.userObjekt.picture)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.userObjekt.surname)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.userObjekt.surname)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.userObjekt.username)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.userObjekt.username)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.userObjekt.zipcode)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.userObjekt.zipcode)
-        </dd>
 
     </dl>
     <br />
@@ -94,7 +94,7 @@
         using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
-            <h3 style="color: red; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">This is required </h3>
+            <h3 style="color: red; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Detta är obligatoriskt</h3>
 
             <span style="font-weight: bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Reason for ban</span>
             <div class="input-group">
@@ -105,7 +105,7 @@
             </div>
             <br /> 
 
-            <span style="font-weight: bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">When should the ban expire?</span>
+            <span style="font-weight: bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Till vilket datum skall blockeringen gälla?</span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
 
@@ -118,11 +118,11 @@
             @Html.HiddenFor(model => model.userID)
             <br />
             <div class="form-actions no-color">
-                <input type="submit" value="Block" class="btn btn-default" />
+                <input type="submit" value="Blockera" class="btn btn-default" />
             </div>
         }
 
     }
     <br />
-    @Html.ActionLink("Back to List", "ActiveUsers")
+    @Html.ActionLink("Tillbaka till listan", "ActiveUsers")
 </div>

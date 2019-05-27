@@ -104,7 +104,7 @@ namespace Loinprojekt_admin.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("Felmeddelande", "It seems like there are no active users yet");
+                    ModelState.AddModelError("Felmeddelande", "Det verkar inte finnas några aktiva användare just nu.");
                     return View();
                 }
             }
@@ -144,7 +144,7 @@ namespace Loinprojekt_admin.Controllers
                 // Om moderatorer inte finns, skriv ut ett felmeddelande
                 else
                 {
-                    ModelState.AddModelError("Felmeddelande", "It seems like there are no assigned moderators yet");
+                    ModelState.AddModelError("Felmeddelande", "Det verkar inte finnas några moderatorer just nu.");
                     return View();
                 }
             }
@@ -183,7 +183,7 @@ namespace Loinprojekt_admin.Controllers
                 // Om flaggade ärenden inte kan hittas, skriv ut ett felmeddelande
                 else
                 {
-                    ModelState.AddModelError("Felmeddelande", "No flagged users here, good for us!");
+                    ModelState.AddModelError("Felmeddelande", "Inga flaggade användare just nu.");
                     return View();
                 }
             }
@@ -256,7 +256,7 @@ namespace Loinprojekt_admin.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("Felmeddelande", "Cant find this user");
+                    ModelState.AddModelError("Felmeddelande", "Denna användare kan inte hittas.");
                     return View();
                 }
             }
@@ -408,7 +408,7 @@ namespace Loinprojekt_admin.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("Felmeddelande", "The user cant be unflagged");
+                    ModelState.AddModelError("Felmeddelande", "Flaggan kan inte tas bort från denna användare.");
                     return View();
                 }
             }
@@ -505,7 +505,7 @@ namespace Loinprojekt_admin.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("Felmeddelande", "Cant find this user");
+                    ModelState.AddModelError("Felmeddelande", "Denna användare kan inte hittas.");
                     return View();
                 }
             }
@@ -580,7 +580,7 @@ namespace Loinprojekt_admin.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("Felmeddelande", "No profile to show here");
+                    ModelState.AddModelError("Felmeddelande", "Ingen profil kan visas.");
                     return View();
 
                 }

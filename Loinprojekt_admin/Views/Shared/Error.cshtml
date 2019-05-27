@@ -4,14 +4,14 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Error</title>
+    <title>Fel</title>
 </head>
 <body>
 
-    <h1 class="text-danger">Error. @Model.Exception.Message</h1> <br />
+    <h1 class="text-danger">Fel! @Model.Exception.Message</h1> <br />
 
-    <h2 class="text-danger">Något gick fel, gå tillbaks och försök igen</h2> <br />
-    <h4 class="text-danger">Om du ej kan gå tillbaks, gå till startsidan</h4>
+    <h2 class="text-danger">Något gick fel, gå tillbaka och försök igen</h2> <br />
+    <h4 class="text-danger">Om du ej kan gå tillbaka, gå till startsidan</h4>
 
 
     @Html.ActionLink("Gå tillbaks", @Model.ActionName, @Model.ControllerName)

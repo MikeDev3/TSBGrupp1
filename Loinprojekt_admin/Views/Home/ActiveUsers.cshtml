@@ -1,27 +1,27 @@
 ﻿@model IEnumerable<Loinprojekt_admin.LoginService.InterfaceUser>
 @{
-    ViewBag.Title = "User accounts";
+    ViewBag.Title = "Aktiva användare";
 }
 <br />
 
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Sök efter namn..." title="Skriv ett namn">
 
 <h2 style="color: red; ">@Html.ValidationMessage("Felmeddelande")</h2>
 
 @if (Model.Count() > 0)
 {
 
-    <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">List of user accounts</h2>
+    <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Lista över aktiva användare</h2>
     <div class="table-wrapper-scroll-y my-custom-scrollbar">
         <table id="myTable" style="overflow-y: auto" class="table">
             <tr>
 
-                <th class="th">Username</th>
+                <th class="th">Användarnamn</th>
                 <th class="th">Status</th>
-                <th class="th">Role</th>
-                <th class="th">Permissions</th>
-                <th class="th">Delete account</th>
-                <th class="th">Block</th>
+                <th class="th">Roll</th>
+                <th class="th">Behörighet</th>
+                <th class="th">Radera konto</th>
+                <th class="th">Blockera</th>
 
             </tr>
 
@@ -33,19 +33,19 @@
                 <td>@Html.DisplayFor(m => item.Roles.Role)</td>
                 @if (item.RoleID == 3)
                 {
-                    <td>@Html.ActionLink("Add permissions", "AddPermission", new { id = item.ID })</td>
+                    <td>@Html.ActionLink("Lägg till behörighet", "AddPermission", new { id = item.ID })</td>
 
                 }
                 else
                 {
-                    <td>@Html.ActionLink("Remove permissions", "DeletePermission", new { id = item.ID })</td>
+                    <td>@Html.ActionLink("Ta bort behörighet", "DeletePermission", new { id = item.ID })</td>
 
                 }
 
 
 
-                <td>@Html.ActionLink("Delete ", "Delete", new { id = item.ID })</td>
-                <td>@Html.ActionLink("Block ", "BlockUser", new { id = item.ID })</td>
+                <td>@Html.ActionLink("Radera", "Delete", new { id = item.ID })</td>
+                <td>@Html.ActionLink("Blockera", "BlockUser", new { id = item.ID })</td>
 
             </tr>
             }
@@ -57,7 +57,7 @@
 }
 else
 {
-    <h2 style="color: red"> It seems like there are no users yet </h2>
+    <h2 style="color: red">Det verkar inte finnas några användare just nu.</h2>
 }
 
 

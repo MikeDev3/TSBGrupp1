@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Loinprojekt_admin.LoginService.InterfaceAdmin>
 @{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "Kontakt";
 }
 
 <h2 style="color: red; ">@Html.ValidationMessage("Felmeddelande")</h2>
@@ -8,14 +8,14 @@
 @if (Model.Count() > 0)
 {
 
-    <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">List of administrators</h2>
+    <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Lista över administratörer att kontakta</h2>
     <div class="table-wrapper-scroll-y my-custom-scrollbar">
         <table class="table">
 
             <tr>
 
-                <th class="th">Username</th>
-                <th class="th">Email</th>
+                <th class="th">Användarnamn</th>
+                <th class="th">E-post</th>
 
             </tr>
 
@@ -38,5 +38,5 @@
 }
 else
 {
-    <h2 style="color:red">It seems like no administrators have been assigned yet</h2>
+    <h2 style="color:red">Det verkar som om inga administratörer går att finna just nu.</h2>
 }

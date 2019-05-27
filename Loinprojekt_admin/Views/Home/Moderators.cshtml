@@ -1,24 +1,24 @@
 ﻿@model IEnumerable<Loinprojekt_admin.LoginService.InterfaceUser>
 @{
-    ViewBag.Title = "Moderator accounts";
+    ViewBag.Title = "Moderatorer";
 }
 <br />
 
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Sök efter namn.." title="Skriv ett namn">
 
 <h2 style="color: red; ">@Html.ValidationMessage("Felmeddelande")</h2>
 
 @if (Model.Count() > 0)
 {
-    <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">List of moderator accounts</h2>
+    <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Lista över moderatorer</h2>
     <div class="table-wrapper-scroll-y my-custom-scrollbar">
 
         <table id="myTable" style="overflow-y: auto" class="table">
             <tr>
-                <th class="th">Username</th>
+                <th class="th">Användarnamn</th>
                 <th class="th">Status</th>
-                <th class="th">Delete permission</th>
-                <th class="th">Delete account</th>
+                <th class="th">Ta bort behörighet</th>
+                <th class="th">Ta bort konto</th>
 
 
             </tr>
@@ -28,10 +28,10 @@
                 <td style="font-weight: bold; font-style:italic">@Html.ActionLink((string)item.Username, "ShowProfile", new { id = item.ID })</td>
                 <td>@Html.DisplayFor(m => item.Status.StatusName)</td>
                 <td>
-                    @Html.ActionLink("Delete permission", "DeletePermission", new { id = item.ID })
+                    @Html.ActionLink("Ta bort behörighet", "DeletePermission", new { id = item.ID })
                 </td>
                 <td>
-                    @Html.ActionLink("Delete account", "DeleteAccount", new { id = item.ID })
+                    @Html.ActionLink("Ta bort konto", "DeleteAccount", new { id = item.ID })
                 </td>
             </tr>
             }
@@ -42,7 +42,7 @@
 }
 else
 {
-    <h2 style="color: red">It seems like no moderators have been assigned yet</h2>
+    <h2 style="color: red">Det ser inte ut som om några moderatorer kunde hittas.</h2>
 }
 
 <script>

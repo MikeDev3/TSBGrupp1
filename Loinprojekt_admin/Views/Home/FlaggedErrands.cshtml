@@ -1,26 +1,26 @@
 ﻿@model IEnumerable<Loinprojekt_admin.LoginService.InterfaceFlaggedUser>
 @{
-    ViewBag.Title = "Flagged userss";
+    ViewBag.Title = "Flaggade ärenden";
 }
 <br />
 
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Sök efter namn.." title="Skriv ett namn">
 
 <h2 style="color: red; ">@Html.ValidationMessage("Felmeddelande")</h2>
 @if (Model.Count() > 0)
 {
-    <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">List of flagged users</h2>
+    <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Lista över flaggade användare</h2>
 
     <div class="table-wrapper-scroll-y my-custom-scrollbar">
 
         <table id="myTable" style="overflow-y: auto" class="table">
             <tr>
-                <th class="th">Username</th>
-                <th class="th">Reason</th>
-                <th class="th">Flagged by</th>
-                <th class="th">Block</th>
-                <th class="th">Unflag</th>
-                <th class="th">Delete</th>
+                <th class="th">Användarnamn</th>
+                <th class="th">Orsak</th>
+                <th class="th">Flaggad av</th>
+                <th class="th">Blockera</th>
+                <th class="th">Ta bort flagga</th>
+                <th class="th">Radera</th>
 
             </tr>
             @foreach (var item in Model)
@@ -31,13 +31,13 @@
                 <td style="font-weight: bold; font-style:italic">@Html.ActionLink((string)item.FlaggedBy.Username, "ShowProfile", new { id = item.FlaggedByUserId })</td>
                
                 <td>
-                    @Html.ActionLink("Block user", "BlockUser", "Home", new { id = item.ID })
+                    @Html.ActionLink("Blockera användare", "BlockUser", "Home", new { id = item.ID })
                 </td>
                 <td>
-                    @Html.ActionLink("Unflag", "Unflag", new { id = item.ID })
+                    @Html.ActionLink("Ta bort flagga", "Unflag", new { id = item.ID })
                 </td>
                 <td>
-                    @Html.ActionLink("Delete account", "DeleteAccount", new { id = item.ID })
+                    @Html.ActionLink("Radera konto", "DeleteAccount", new { id = item.ID })
                 </td>
             </tr>
             }
@@ -47,7 +47,7 @@
 }
 else
 {
-    <h2 style="color: red">It seems like there are no flagged errands yet</h2>
+    <h2 style="color: red">Det ser inte ut som att det finns några flaggade användare just nu.</h2>
 }
 
 

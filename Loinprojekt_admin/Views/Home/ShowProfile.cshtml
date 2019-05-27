@@ -1,10 +1,10 @@
 ﻿@model Loinprojekt_admin.UserService.User
 
 @{
-    ViewBag.Title = "ShowProfile";
+    ViewBag.Title = "Profil";
 }
 
-<h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Profile</h2>
+<h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Profil</h2>
 <h2 style="color: red; ">@Html.ValidationMessage("Felmeddelande")</h2>
 
 <div>
@@ -16,68 +16,35 @@
             if (Model.Picture != null)
             {
                 <dt>
-                    @Html.DisplayNameFor(model => model.Picture)
+                    Bild
                 </dt>
             }
             else
             {
-                <dt style="color:red">Picture is empty</dt>
+                <dt style="color:red">Ingen bild finns</dt>
                 <dd>             </dd>
             }
             <dd>
                 <img style="height:200px; width:200px;" src="@Model.Picture" />
             </dd>
-
-            if (Model.Address != null)
+            if (Model.Username != null)
             {
                 <dt>
-                    @Html.DisplayNameFor(model => model.Address)
+                    Användarnamn
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.Address)
-                </dd>
-
-            }
-            else
-            {
-                <dt style="color:red">Adress is empty</dt>
-                <dd>                </dd>
-            }
-
-            if (Model.City != null)
-            {
-                <dt>
-                    @Html.DisplayNameFor(model => model.City)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.City)
+                    @Html.DisplayFor(model => model.Username)
                 </dd>
             }
             else
             {
-                <dt style="color:red">City is empty</dt>
+                <dt style="color:red">Användarnamn finns inte</dt>
                 <dd>              </dd>
             }
-
-            if (Model.Email != null)
-            {
-                <dt>
-                    @Html.DisplayNameFor(model => model.Email)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.Email)
-                </dd>
-            }
-            else
-            {
-                <dt style="color:red">Email is empty</dt>
-                <dd>              </dd>
-            }
-
             if (Model.Name != null)
             {
                 <dt>
-                    @Html.DisplayNameFor(model => model.Name)
+                    Förnamn
                 </dt>
 
                 <dd>
@@ -86,44 +53,13 @@
             }
             else
             {
-                <dt style="color:red">Name is empty</dt>
+                <dt style="color:red">Förnamn finns inte</dt>
                 <dd>              </dd>
             }
-
-            if (Model.PersonalCodeNumber != null)
-            {
-                <dt>
-                    Personal Code Number
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.PersonalCodeNumber)
-                </dd>
-            }
-            else
-            {
-                <dt style="color:red">Personal Code number</dt>
-                <dd>              </dd>
-            }
-
-            if (Model.Phonenumber != null)
-            {
-                <dt>
-                    @Html.DisplayNameFor(model => model.Phonenumber)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.Phonenumber)
-                </dd>
-            }
-            else
-            {
-                <dt style="color:red">Phonenumber is empty</dt>
-                <dd>              </dd>
-            }
-
             if (Model.Surname != null)
             {
                 <dt>
-                    @Html.DisplayNameFor(model => model.Surname)
+                    Efternamn
                 </dt>
                 <dd>
                     @Html.DisplayFor(model => model.Surname)
@@ -131,29 +67,57 @@
             }
             else
             {
-                <dt style="color:red">Surname is empty</dt>
+                <dt style="color:red">Efternamn finns inte</dt>
                 <dd>              </dd>
             }
-
-            if (Model.Username != null)
+            if (Model.PersonalCodeNumber != null)
             {
                 <dt>
-                    @Html.DisplayNameFor(model => model.Username)
+                    Personnummer
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.Username)
+                    @Html.DisplayFor(model => model.PersonalCodeNumber)
                 </dd>
             }
             else
             {
-                <dt style="color:red">Username is empty</dt>
+                <dt style="color:red">Personnummer finns inte</dt>
+                <dd>              </dd>
+            }
+            if (Model.Email != null)
+            {
+                <dt>
+                    E-post
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+            }
+            else
+            {
+                <dt style="color:red">E-post finns inte</dt>
                 <dd>              </dd>
             }
 
+            if (Model.Address != null)
+            {
+                <dt>
+                    Adress
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Address)
+                </dd>
+
+            }
+            else
+            {
+                <dt style="color:red">Ingen adress finns</dt>
+                <dd>                </dd>
+            }
             if (Model.ZipCode != null)
             {
                 <dt>
-                    Zipcode
+                    Postnummer
                 </dt>
 
                 <dd>
@@ -162,9 +126,45 @@
             }
             else
             {
-                <dt style="color:red">Zipcode is empty</dt>
+                <dt style="color:red">Postnummer finns inte</dt>
                 <dd>              </dd>
             }
+
+            if (Model.City != null)
+            {
+                <dt>
+                    Stad
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.City)
+                </dd>
+            }
+            else
+            {
+                <dt style="color:red">Ingen stad finns</dt>
+                <dd>              </dd>
+            }
+
+
+
+
+            if (Model.Phonenumber != null)
+            {
+                <dt>
+                    Telefonnummer
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Phonenumber)
+                </dd>
+            }
+            else
+            {
+                <dt style="color:red">Telefonnummer finns inte</dt>
+                <dd>              </dd>
+            }
+
+
+
         }
         else
         {
@@ -174,5 +174,5 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Back to Active Users", "ActiveUsers", "Home")
+    @Html.ActionLink("Tillbaka till aktiva användare", "ActiveUsers", "Home")
 </p>

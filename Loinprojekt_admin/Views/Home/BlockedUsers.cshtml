@@ -1,26 +1,26 @@
 ﻿@model IEnumerable<Loinprojekt_admin.LoginService.InterfaceBlockedUser>
 @{
-    ViewBag.Title = "Blocked users";
+    ViewBag.Title = "Blockerade användare";
 }
 <br />
 
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Sök efter namn.." title="Type in a name">
 
 <h2 style="color: red; ">@Html.ValidationMessage("Felmeddelande")</h2>
 
 @if (Model.Count() > 0)
 {
-    <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Blocked Users</h2>
+    <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Blockerade användare</h2>
     <div class="table-wrapper-scroll-y my-custom-scrollbar">
 
         <table id="myTable" style="overflow-y: auto" class="table">
             <tr>
-                <th class="th">Username</th>
-                <th class="th">Reason</th>
-                <th class="th">Blocked by</th>
-                <th class="th">Blocked from</th>
-                <th class="th">Blocked to</th>
-                <th class="th">Delete account</th>
+                <th class="th">Användarnamn</th>
+                <th class="th">Orsak</th>
+                <th class="th">Blockerad av</th>
+                <th class="th">Blockerad från</th>
+                <th class="th">Blockerad till</th>
+                <th class="th">Radera konto</th>
             </tr>
             @foreach (var item in Model)
             {
@@ -34,7 +34,7 @@
 
 
                 <td>
-                    @Html.ActionLink("Delete account", "Delete", new { id = item.ID })
+                    @Html.ActionLink("Radera konto", "Delete", new { id = item.ID })
                 </td>
             </tr>
             }
@@ -44,7 +44,7 @@
 }
 else
 {
-    <h2 style="color:red">No blocked users here</h2>
+    <h2 style="color:red">Inga blockerade användare kunde hittas.</h2>
 }
 
 
