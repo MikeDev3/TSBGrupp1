@@ -17,14 +17,14 @@
 <body>
     <div class="header">
         <img alt="Finder" src="//i.imgur.com/YHlSO2T.png" style="max-width: 100% ;
-         min-height: 53px ; cursor:pointer" onclick="window.location = '/';" />
+         min-height: 53px ; cursor:pointer" onclick="window.location = '/Home/Index';" />
         <div style="float:right">
 
             @if (HttpContext.Current.Session["admin"] != null)
             {
                 <div style="margin-right: 0%">
                 <p style="color: black" class="menuBarItem"> @ViewBag.Username </p>
-                    <button class="logoutbtn" style="color: brown">@Html.ActionLink("Logga ut", "LogOut", "Login")</button>
+                    <button class="logoutbtn" >@Html.ActionLink("Logga ut", "LogOut", "Login", new { @class = "logoutBtnColor" })</button>
                 </div>
             }
 
@@ -61,7 +61,7 @@
     <div class="footer">
         <br />
         <img class="logo1" src="//i.imgur.com/YHlSO2T.png" height="90">
-        <p style="color: white">&copy; @DateTime.Now.Year - Finder Admin</p>
+        <p style="color: limegreen">&copy; @DateTime.Now.Year - Finder Admin</p>
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

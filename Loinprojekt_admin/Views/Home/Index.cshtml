@@ -18,31 +18,28 @@
     <div class="w3-row-padding w3-grayscale">
         <div class="w3-col m4 w3-margin-bottom">
             <div class="w3-light-grey">
-                <img src="~/CSS/user-clipart-matt-icons_preferences-desktop-personal.png" alt="Userimage" style="width:100%">
+                <img src="~/fonts/checkedbox.png" alt="Userimage" style="width:100%">
                 <div class="w3-container">
                     <h1 class="w3-xxlarge w3-text-red"><b>Aktiva användare</b></h1> <br />
-                    <h1 style="color: lawngreen; text-align:center" class="w3-xxxlarge"><b>@Html.DisplayFor(m => m.ActiveRow)</b></h1>
-
+                    <h1 style="color: lawngreen; text-align:center" class="w3-xxxlarge"><b>@Html.ActionLink((string)Model.ActiveRow.ToString(), "ActiveUsers")</b></h1>
                 </div>
             </div>
         </div>
         <div class="w3-col m4 w3-margin-bottom">
             <div class="w3-light-grey">
-                <img src="~/CSS/user-clipart-matt-icons_preferences-desktop-personal.png" alt="Userimage" style="width:100%">
+                <img src="~/fonts/flag.png" alt="Userimage" style="width:100%">
                 <div class="w3-container">
                     <h1 class="w3-xxlarge w3-text-red"><b>Flaggade ärenden</b></h1> <br />
-                    <h1 style="color: aqua; text-align:center" class="w3-xxxlarge"><b>@Html.DisplayFor(m => m.FlaggedRow)</b></h1>
-
+                    <h1 style="color: aqua; text-align:center" class="w3-xxxlarge"><b>@Html.ActionLink((string)Model.FlaggedRow.ToString(), "ActiveUsers")</b></h1>
                 </div>
             </div>
         </div>
         <div class="w3-col m4 w3-margin-bottom">
             <div class="w3-light-grey">
-                <img src="~/CSS/user-clipart-matt-icons_preferences-desktop-personal.png" alt="Userimage" style="width:100%">
+                <img src="~/fonts/blocked.png" alt="Userimage" style="width:100%">
                 <div class="w3-container">
                     <h1 class="w3-xxlarge w3-text-red"><b>Blockerade konton</b></h1><br />
-                    <h1 style="color: orange; text-align:center" class="w3-xxxlarge"><b>@Html.DisplayFor(m => m.BlockedRow)</b></h1>
-
+                    <h1 style="color: orange; text-align:center" class="w3-xxxlarge"><b>@Html.ActionLink((string)Model.BlockedRow.ToString(), "ActiveUsers")</b></h1>
 
                 </div>
             </div>
