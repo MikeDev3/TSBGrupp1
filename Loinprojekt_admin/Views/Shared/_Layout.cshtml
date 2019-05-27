@@ -16,21 +16,21 @@
 </head>
 <body>
     <div class="header">
-        <img alt="Finder" src="//i.imgur.com/YHlSO2T.png" style="max-width: 100% ;
-         min-height: 53px ; cursor:pointer" onclick="window.location = '/Home/Index';" />
+        <a href="@Url.Action("Index", "Home")"> <img style="max-width:100%; min-height:53px;" src="//i.imgur.com/YHlSO2T.png" /></a>
+
         <div style="float:right">
 
             @if (HttpContext.Current.Session["admin"] != null)
             {
                 <div style="margin-right: 0%">
-                <p style="color: black" class="menuBarItem"> @ViewBag.Username </p>
-                    <button class="logoutbtn" >@Html.ActionLink("Logga ut", "LogOut", "Login", null, new { @class = "logoutBtnColor" })</button>
+                    <p style="color: black" class="menuBarItem"> @ViewBag.Username </p>
+                    <button class="logoutbtn">@Html.ActionLink("Logga ut", "LogOut", "Login", null, new { @class = "logoutBtnColor" })</button>
                 </div>
             }
 
         </div>
 
-       
+
     </div>
 
 
