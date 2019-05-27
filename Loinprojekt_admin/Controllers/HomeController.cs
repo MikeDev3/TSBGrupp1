@@ -593,9 +593,6 @@ namespace Loinprojekt_admin.Controllers
 
         }
 
-        public ActionResult LogOut()
-        {
-            return View();
-        }
+        
     }
 }
