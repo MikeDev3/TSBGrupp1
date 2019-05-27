@@ -64,9 +64,9 @@ namespace Loinprojekt_admin.Controllers
     public ActionResult LogOut()
         {
         // Anrop på en färdig metod för att logga ut
-    System.Web.Security.FormsAuthentication.SignOut();
-    // När utloggningen är klar, skicka användaren till login-sidan
-    return RedirectToAction("LoginPage");
+               System.Web.Security.FormsAuthentication.SignOut();
+          // När utloggningen är klar, skicka användaren till login-sidan!!
+          return RedirectToAction("LoginPage");
         }
     }
 }
