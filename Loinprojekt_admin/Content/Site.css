@@ -60,7 +60,6 @@ textarea {
 .header-bottom {
     margin-left: 35%;
     height: 50px;
-
 }
 
 /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
@@ -140,17 +139,19 @@ textarea {
 }
 /*Footer*/
 .footer {
-    background-color: black;
+    background-color: lightgray;
     height: 200px;
     width: auto;
     text-align: center;
-    margin-bottom:0px;
+    margin-bottom: 0px;
 }
 
     .footer .logo1 {
         display: block;
-        margin-left: auto;
-        margin-right: auto;
+        margin-left:40%;
+        margin-top:10%;
+        margin-top:3%;
+        
     }
 
 .my-custom-scrollbar {
@@ -162,6 +163,7 @@ textarea {
 .table-wrapper-scroll-y {
     display: block;
 }
+
 #myInput {
     background-image: url('/CSS/698956-icon-111-search-512.png');
     background-position: 10px 10px;

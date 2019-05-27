@@ -198,6 +198,9 @@
     <Content Include="CSS\Style.css" />
     <Content Include="CSS\user-clipart-matt-icons_preferences-desktop-personal.png" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\blocked.png" />
+    <Content Include="fonts\checkedbox.png" />
+    <Content Include="fonts\flag.png" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />

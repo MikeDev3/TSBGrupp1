@@ -460,6 +460,12 @@ namespace Loinprojekt_admin.UserService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/GetLatestLog", ReplyAction="http://tempuri.org/IUserProfileService/GetLatestLogResponse")]
         System.Threading.Tasks.Task<string> GetLatestLogAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/IsAlive", ReplyAction="http://tempuri.org/IUserProfileService/IsAliveResponse")]
+        bool IsAlive();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/IsAlive", ReplyAction="http://tempuri.org/IUserProfileService/IsAliveResponse")]
+        System.Threading.Tasks.Task<bool> IsAliveAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -575,6 +581,14 @@ namespace Loinprojekt_admin.UserService {
         
         public System.Threading.Tasks.Task<string> GetLatestLogAsync() {
             return base.Channel.GetLatestLogAsync();
+        }
+        
+        public bool IsAlive() {
+            return base.Channel.IsAlive();
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsAliveAsync() {
+            return base.Channel.IsAliveAsync();
         }
     }
 }
