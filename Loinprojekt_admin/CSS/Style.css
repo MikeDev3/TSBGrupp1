@@ -82,9 +82,8 @@ input[type=button], input[type=submit], input[type=reset] {
 
 .menuBarItem {
     font-size: 18px;
-    position: absolute;
-    right: 5.5%;
-    top: 10%;
+    margin: -15%;
+    margin-left:-80%;
 }
 
 .logoutbtn {
@@ -92,16 +91,14 @@ input[type=button], input[type=submit], input[type=reset] {
     background-color: limegreen;
     border: none;
     border-radius: 6px;
-    padding: 11px 20px;
+    padding: 15px 20px;
     text-align: center;
     font-size: 16px;
-    margin: 10px 30px;
+    margin: 30% -67%;
     transition: 0.3s;
     display: inline-block;
     cursor: pointer;
-    position: absolute;
-    right: 5%;
-    top: 15%;
+    
 }
 
 .logoutBtnColor {
