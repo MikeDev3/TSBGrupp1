@@ -13,7 +13,7 @@ namespace Loinprojekt_admin.Controllers
         public ActionResult Index()
         {
             Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
-            // Om admin ej är inloggad, gå till inloggningssidan
+            // Om admin ej är inloggad, gåå till inloggningssidan
 
             if (Session["admin"] == null)
             {
