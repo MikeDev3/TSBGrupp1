@@ -12,8 +12,10 @@ namespace Loinprojekt_admin.Controllers
 
         public ActionResult Index()
         {
+
+
             Models.AdminModel sessionObjekt = (Models.AdminModel)Session["admin"];
-            // Om admin ej är inloggad, gåå till inloggningssidan
+            // Om admin ej är inloggad, gå till inloggningssidan
 
             if (Session["admin"] == null)
             {
@@ -24,23 +26,31 @@ namespace Loinprojekt_admin.Controllers
                 ViewBag.Username = "Inloggad som: " + sessionObjekt.username;
 
             }
+            try
+            {
 
-            LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
+                LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
 
-            int ActiveRow = client.CountActiveUsers();
-            int FlaggedRow = client.CountFlaggedUsers();
-            int BlockedRow = client.CountBlockedUsers();
+                int ActiveRow = client.CountActiveUsers();
+                int FlaggedRow = client.CountFlaggedUsers();
+                int BlockedRow = client.CountBlockedUsers();
 
-            Models.StatisticModel statisticModel = new Models.StatisticModel();
+                Models.StatisticModel statisticModel = new Models.StatisticModel();
 
-            statisticModel.ActiveRow = ActiveRow;
-            statisticModel.BlockedRow = BlockedRow;
-            statisticModel.FlaggedRow = FlaggedRow;
+                statisticModel.ActiveRow = ActiveRow;
+                statisticModel.BlockedRow = BlockedRow;
+                statisticModel.FlaggedRow = FlaggedRow;
 
 
-            return View(statisticModel);
+                return View(statisticModel);
+            }
+            catch (Exception ex)
+            {
+
+                return View("Error", new HandleErrorInfo(ex, "Home", "ActiveUsers"));
+            }
         }
-        //funkar
+        
         // Metod för att visa en profil, tar en användares Id som inparameter för att kunna visa denna specifika profil
         public ActionResult ShowProfile(int id)
         {
@@ -61,13 +71,18 @@ namespace Loinprojekt_admin.Controllers
 
                 if (client.GetUserByUserId(id) != null)
                 {
+                    Models.Userobjekt userobjekt = new Models.Userobjekt();
+                    LoginService.LoginServiceClient client2 = new LoginService.LoginServiceClient();
+
+                    userobjekt.StatusId = client2.GetUserById(id).ID;
                     // Vy som använder sig av en metod från webservicen för att hitta en specifik användare
-                    return View(client.GetUserByUserId(id));
+                    userobjekt.user = client.GetUserByUserId(id);
+                    return View(userobjekt);
 
                 }
                 else
                 {
-                    ModelState.AddModelError("Felmeddelande", "No profile to show here");
+                    ModelState.AddModelError("Felmeddelande", "Ingen profil att visa här");
                     return View();
 
                 }
@@ -78,7 +93,6 @@ namespace Loinprojekt_admin.Controllers
                 return View("Error", new HandleErrorInfo(ex, "Home", "ActiveUsers"));
             }
         }
-        //funkar
         // Metod för att visa aktiva användare
         public ActionResult ActiveUsers()
         {
@@ -114,7 +128,6 @@ namespace Loinprojekt_admin.Controllers
             }
         }
 
-        //funkar
         // Metod för att visa alla moderatorer
         public ActionResult Moderators()
         {
@@ -154,7 +167,6 @@ namespace Loinprojekt_admin.Controllers
             }
         }
 
-        //funkar
         // Metod för att visa alla flaggade ärenden
         public ActionResult FlaggedErrands()
         {
@@ -193,7 +205,7 @@ namespace Loinprojekt_admin.Controllers
             }
         } 
 
-        //funkar
+
         // Metod för att visa alla blockade användare
         public ActionResult BlockedUsers()
         {
@@ -230,7 +242,6 @@ namespace Loinprojekt_admin.Controllers
            
         }
      
-        //funkar
         // Metod för att radera en användare, tar den specifika användarens Id som inparamteter
         public ActionResult Delete(int id)
         {
@@ -267,7 +278,7 @@ namespace Loinprojekt_admin.Controllers
 
         }
 
-        //funkar
+ 
         [HttpPost, ActionName("Delete")] [ValidateAntiForgeryToken]
         /*
          Metod för att bekräfta radering av en användare, här utförs således den faktiska raderingen.
@@ -303,7 +314,7 @@ namespace Loinprojekt_admin.Controllers
                 return View("Error", new HandleErrorInfo(ex, "Home", "ActiveUsers"));
             }
         }
-        //funkar
+
         /*
         Metod för att lägga till moderatorsbehörigheter.
         Metodens inparameter är det Id som tillhör den specifika användare som ska tilldelas moderatorsbehörigheter.
@@ -340,7 +351,7 @@ namespace Loinprojekt_admin.Controllers
 
 
         }
-        //funkar
+
         /*
         Metod för att radera moderatorsbehörigheter.
         Metodens inparameter är ID:t som tillhör den specifika användare vars behörighet ska raderas.
@@ -364,14 +375,14 @@ namespace Loinprojekt_admin.Controllers
                 LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
                 if (client.AssignUserRole(id) == true)
                 {
-                    // Här ropas på webserivcens metod för att lägga till behörigheter, är det rätt?
+                    // Här ropas på webserivcens metod för att ta bort moderator behörigheter och göra användaren till en vanlig användare
                     client.AssignUserRole(id);
                     // När behörigheten är raderad, återvänd till sidan som visar alla moderatorer
                     return RedirectToAction("Moderators");
                 }
                 else
                 {
-                    ModelState.AddModelError("Felmeddelande", "The user is already a normal user");
+                    ModelState.AddModelError("Felmeddelande", "Användaren har ingen moderator behörighet");
                     return View();
                 }
             }
@@ -380,7 +391,7 @@ namespace Loinprojekt_admin.Controllers
                 return View("Error", new HandleErrorInfo(ex, "Home", "ActiveUsers"));
             }
         }
-        //funkar
+
         // Metod för att ta bort flaggan från en användare, tar den specifika användarens Id som inparameter
         public ActionResult Unflag(int id)
         {
@@ -420,15 +431,6 @@ namespace Loinprojekt_admin.Controllers
         }
 
 
-        //KVAR ATT GÖRA:
-        // Denna metod är fortfarande bortkommenterad, men den ser ut som att den borde funka?
-        /* public ActionResult Block(int id)
-         {
-             LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
-             client.BlockUser(id);
-             return RedirectToAction("ActiveUsers");
-         }*/
-
 // Metod för kontaktvyn, där man ska kunna kontakta andra admins
         public ActionResult Contact()
         {
@@ -455,7 +457,7 @@ namespace Loinprojekt_admin.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("Felmeddelande", "It seems like there are no admins yet");
+                    ModelState.AddModelError("Felmeddelande", "Det verkar som att det inte finns några admins än");
                     return View();
                 }
             }
@@ -465,7 +467,7 @@ namespace Loinprojekt_admin.Controllers
             }
         }
 
-        //funkar
+      
         // Metod för att radera en användare, tar den specifika användarens Id som inparamteter
         public ActionResult BlockUser(int id)
         {
@@ -486,7 +488,9 @@ namespace Loinprojekt_admin.Controllers
                 if (client.GetUserByUserId(id) != null)
                 {
                     Models.Userobjekt userobjekt = new Models.Userobjekt();
-                    userobjekt.ID = client.GetUserByUserId(id).Id;
+
+                    userobjekt.user = client.GetUserByUserId(id);
+                    /*userobjekt.ID = client.GetUserByUserId(id).Id;
                     userobjekt.name = client.GetUserByUserId(id).Name;
                     userobjekt.surname = client.GetUserByUserId(id).Surname;
                     userobjekt.city = client.GetUserByUserId(id).City;
@@ -494,10 +498,10 @@ namespace Loinprojekt_admin.Controllers
                     userobjekt.phonenumber = client.GetUserByUserId(id).Phonenumber;
                     userobjekt.username = client.GetUserByUserId(id).Username;
                     userobjekt.email = client.GetUserByUserId(id).Email;
-                    userobjekt.picture = client.GetUserByUserId(id).Picture;
+                    userobjekt.picture = client.GetUserByUserId(id).Picture;*/
 
                     Models.ViewModel viewModel = new Models.ViewModel();
-                    viewModel.userID = userobjekt.ID;
+                    viewModel.userID = userobjekt.user.Id;
                     viewModel.userObjekt = userobjekt;
 
                     // Anrop till webservicens metod för att hitta en specifik användare och visa upp en vy utifrån detta
@@ -516,7 +520,7 @@ namespace Loinprojekt_admin.Controllers
 
         }
 
-        //funkar
+    
         [HttpPost, ActionName("BlockUser")]
         [ValidateAntiForgeryToken]
         /*

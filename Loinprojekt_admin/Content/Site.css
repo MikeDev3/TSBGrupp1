@@ -16,7 +16,15 @@
 .dl-horizontal dt {
     white-space: normal;
 }
-
+.blockBtn {
+    width: 8%;
+    font-size: 15px;
+    border-radius: 8px;
+    background-color:red;
+}
+.blockbtnColor {
+    color: white;
+}
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,

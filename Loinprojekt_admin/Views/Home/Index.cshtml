@@ -1,20 +1,18 @@
 ﻿@model Loinprojekt_admin.Models.StatisticModel
 @{
-    /**/
-
-    ViewBag.Title = "Start";
+        ViewBag.Title = "Start";
 }
 
 <div class="w3-main" >
 
-    <!-- Designers -->
+
     <div class="w3-container" id="designers" style="margin-top:75px">
         <h1 class="w3-xxxlarge w3-text-red"><b>Statistik kring användningen av Finder</b></h1>
         <hr style="width:50px;border:5px solid red" class="w3-round">
        
     </div>
 
-    <!-- The Team -->
+    <!-- Aktiva användare -->
     <div class="w3-row-padding w3-grayscale">
         <div class="w3-col m4 w3-margin-bottom">
             <div class="w3-light-grey">
@@ -25,6 +23,7 @@
                 </div>
             </div>
         </div>
+        <!-- Flaggade användare -->
         <div class="w3-col m4 w3-margin-bottom">
             <div class="w3-light-grey">
                 <img src="~/fonts/flag.png" alt="Userimage" style="width:100%">
@@ -34,6 +33,7 @@
                 </div>
             </div>
         </div>
+        <!-- Blockade användare -->
         <div class="w3-col m4 w3-margin-bottom">
             <div class="w3-light-grey">
                 <img src="~/fonts/blocked.png" alt="Userimage" style="width:100%">

@@ -133,7 +133,6 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\LoggingConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Connected Services\LoginService\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -256,7 +255,6 @@
     <Content Include="Views\Home\FlaggedErrands.cshtml" />
     <Content Include="Views\Home\BlockedUsers.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Permission.cshtml" />
     <Content Include="Views\Home\Block.cshtml" />
     <Content Include="Views\Home\Delete.cshtml" />
     <Content Include="Views\Home\ShowProfile.cshtml" />

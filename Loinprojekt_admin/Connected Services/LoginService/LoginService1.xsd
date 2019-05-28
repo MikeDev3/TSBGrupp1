@@ -180,10 +180,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetUserById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/LoginProject.Interface" minOccurs="0" name="GetUserByIdResult" nillable="true" type="q3:InterfaceUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="UpdateAccountInfo">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/LoginProject.Interface" minOccurs="0" name="UpdatedAccountInfo" nillable="true" type="q3:ReturnUser" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/LoginProject.Interface" minOccurs="0" name="UpdatedAccountInfo" nillable="true" type="q4:ReturnUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -202,7 +216,7 @@
   <xs:element name="GetFlaggedUsersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/LoginProject.Interface" minOccurs="0" name="GetFlaggedUsersResult" nillable="true" type="q4:ArrayOfInterfaceFlaggedUser" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/LoginProject.Interface" minOccurs="0" name="GetFlaggedUsersResult" nillable="true" type="q5:ArrayOfInterfaceFlaggedUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -214,7 +228,7 @@
   <xs:element name="GetBlockedUsersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/LoginProject.Interface" minOccurs="0" name="GetBlockedUsersResult" nillable="true" type="q5:ArrayOfInterfaceBlockedUser" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/LoginProject.Interface" minOccurs="0" name="GetBlockedUsersResult" nillable="true" type="q6:ArrayOfInterfaceBlockedUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -226,7 +240,7 @@
   <xs:element name="GetModeratorsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/LoginProject.Interface" minOccurs="0" name="GetModeratorsResult" nillable="true" type="q6:ArrayOfInterfaceUser" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/LoginProject.Interface" minOccurs="0" name="GetModeratorsResult" nillable="true" type="q7:ArrayOfInterfaceUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -238,7 +252,7 @@
   <xs:element name="GetAdminsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/LoginProject.Interface" minOccurs="0" name="GetAdminsResult" nillable="true" type="q7:ArrayOfInterfaceAdmin" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/LoginProject.Interface" minOccurs="0" name="GetAdminsResult" nillable="true" type="q8:ArrayOfInterfaceAdmin" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -250,7 +264,7 @@
   <xs:element name="GetActiveUsersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/LoginProject.Interface" minOccurs="0" name="GetActiveUsersResult" nillable="true" type="q8:ArrayOfInterfaceUser" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/LoginProject.Interface" minOccurs="0" name="GetActiveUsersResult" nillable="true" type="q9:ArrayOfInterfaceUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -367,7 +381,7 @@
   <xs:element name="GetAdminByUsernameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/LoginProject.Interface" minOccurs="0" name="GetAdminByUsernameResult" nillable="true" type="q9:InterfaceAdmin" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/LoginProject.Interface" minOccurs="0" name="GetAdminByUsernameResult" nillable="true" type="q10:InterfaceAdmin" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -381,7 +395,7 @@
   <xs:element name="GetAdminByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/LoginProject.Interface" minOccurs="0" name="GetAdminByIdResult" nillable="true" type="q10:InterfaceAdmin" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/LoginProject.Interface" minOccurs="0" name="GetAdminByIdResult" nillable="true" type="q11:InterfaceAdmin" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
