@@ -26,18 +26,18 @@
             @foreach (var item in Model)
             {
             <tr>
-                <td style="font-weight: bold; font-style:italic">@Html.ActionLink((string)item.WhoIsFlagged.Username, "ShowProfile", new { id = item.ID })</td>
+                <td style="font-weight: bold; font-style:italic">@Html.ActionLink((string)item.WhoIsFlagged.Username, "ShowProfile", new { id = item.WhoIsFlaggedID })</td>
                 <td>@Html.DisplayFor(m => item.Reason)</td>
                 <td style="font-weight: bold; font-style:italic">@Html.ActionLink((string)item.FlaggedBy.Username, "ShowProfile", new { id = item.FlaggedByUserId })</td>
                
                 <td>
-                    @Html.ActionLink("Blockera användare", "BlockUser", "Home", new { id = item.ID })
+                    @Html.ActionLink("Blockera användare", "BlockUser", new { id = item.WhoIsFlaggedID })
                 </td>
                 <td>
-                    @Html.ActionLink("Ta bort flagga", "Unflag", new { id = item.ID })
+                    @Html.ActionLink("Ta bort flagga", "Unflag", new { id = item.WhoIsFlaggedID })
                 </td>
                 <td>
-                    @Html.ActionLink("Radera konto", "DeleteAccount", new { id = item.ID })
+                    @Html.ActionLink("Radera konto", "Delete", new { id = item.WhoIsFlaggedID })
                 </td>
             </tr>
             }

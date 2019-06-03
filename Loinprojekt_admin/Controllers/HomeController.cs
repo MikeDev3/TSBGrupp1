@@ -300,10 +300,12 @@ namespace Loinprojekt_admin.Controllers
             try
             {
                 UserService.UserProfileServiceClient client = new UserService.UserProfileServiceClient();
+                LoginService.LoginServiceClient client2 = new LoginService.LoginServiceClient();
 
                 // Anrop till webservicen
                 // Anrop till webservicens metod för att radera en användare, där vi skickar me med den specifika användarens Id
                 client.DeleteUser(id);
+                client2.DeleteUser(id);
                 // När raderingen slutförs, återvänd till sidan som visar alla aktiva användare
                 ModelState.AddModelError("Felmeddelande", "Konto raderat!");
                 return RedirectToAction("ActiveUsers");
@@ -410,18 +412,13 @@ namespace Loinprojekt_admin.Controllers
             {
                 // Anrop till webservicen
                 LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
-                if (client.AssignUserRole(id) == true)
-                {
+                
                     // Anrop till webservicens metod för att ta bort flaggan från en användare, här skickar vi med Id:t för den specifika användaren
                     client.UnflagUser(id);
                     // När operationen är klar, återvänd till sidan som visar alla aktiva användare
                     return RedirectToAction("ActiveUsers");
-                }
-                else
-                {
-                    ModelState.AddModelError("Felmeddelande", "Flaggan kan inte tas bort från denna användare.");
-                    return View();
-                }
+              
+                   
             }
             catch (Exception ex)
             {
