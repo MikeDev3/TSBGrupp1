@@ -302,10 +302,21 @@ namespace Loinprojekt_admin.Controllers
                 UserService.UserProfileServiceClient client = new UserService.UserProfileServiceClient();
                 LoginService.LoginServiceClient client2 = new LoginService.LoginServiceClient();
 
-                // Anrop till webservicen
-                // Anrop till webservicens metod för att radera en användare, där vi skickar me med den specifika användarens Id
+                if (client.UserIdExistsInProfile(id) == true)
+                {
                 client.DeleteUser(id);
                 client2.DeleteUser(id);
+                    
+                }
+
+                else
+                {
+                    client2.DeleteUser(id);
+
+                }
+
+                // Anrop till webservicen
+                // Anrop till webservicens metod för att radera en användare, där vi skickar me med den specifika användarens Id
                 // När raderingen slutförs, återvänd till sidan som visar alla aktiva användare
                 ModelState.AddModelError("Felmeddelande", "Konto raderat!");
                 return RedirectToAction("ActiveUsers");
